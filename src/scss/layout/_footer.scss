@@ -1,0 +1,150 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.footer{
+    background-color: #333a46;
+    &-link{
+        border-bottom: 1px solid #5c616b;
+        
+        .link{
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            transition: color 0.3s ease;
+            border-left: 1px solid #5c616b;
+            border-right: 1px solid #5c616b;
+            gap:0 11rem;
+            color: #a7afbe;
+            font-size: var(--font-size-lg);
+            padding: 2rem 2.5rem;
+            &:hover{
+                color: #fff;
+                text-decoration: underline;
+            }
+            i{
+                display: inline-flex;
+                width: 1.6rem;
+                height: 1.6rem;
+                background: url('@/assets/images/portal/icon-blank.png') no-repeat center center / contain;
+            }
+            @include responsive($lg-desktop){
+                border-left: 0;
+            }
+            @include responsive($desktop){
+                font-size: var(--font-size-mobile-base);
+                padding: 1.4rem 2rem;
+            }
+        }
+    }
+    &-content{
+        padding: 4rem 0;
+        @include responsive($lg-desktop){
+            padding-left: var(--gutter-md);
+            padding-right: var(--gutter-md);
+        }
+        @include responsive($tablet){
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .logo{
+            width: 16.3rem;
+            height: 4.6rem;
+            background: url('@/assets/images/logo-footer.png') no-repeat center center / contain;
+            @include responsive($desktop){
+                width: 12rem;
+                height: 3.6rem;
+            }
+        }
+        .ft-info{
+            padding: 4rem 0;
+            font-size: var(--font-size-lg);
+            @include responsive($desktop){
+                padding: 2rem 0;
+                font-size: var(--font-size-mobile-base);
+            }
+            @include responsive($tablet){
+                font-size: var(--font-size-mobile-base);
+            }
+            .addr{
+                color: #a7afbe;
+            }
+            .tel{
+                display: flex;
+                align-items: center;
+                gap: 0 .8rem;
+                color: #a7afbe;
+                padding: 2rem 0 1.5rem;
+                line-height: 1;
+                @include responsive($desktop){
+                    padding: 1rem 0 0.5rem;
+                }
+                strong{
+                    color: #fff;
+                    font-weight: 700;
+                }
+                a{
+                    display: inline-flex;
+                    vertical-align: top;
+                    align-items: center;
+                    gap:0 .5rem;
+                    color: #fff;
+                    font-weight: 700;
+                    &::before{
+                        content: '';
+                        display: inline-block;
+                        width: 1.6rem;
+                        height: 1.6rem;
+                        background: url('@/assets/images/portal/ico-tell.png') no-repeat center center / contain;
+                    }
+                }
+                
+            }
+            .mail{
+                color: #a7afbe;
+                strong{
+                    font-weight: 700;
+                }
+            }
+        }
+        .ft-links{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #5c616b;
+            padding-top: 2rem;
+            @include responsive($desktop){
+                flex-direction: column;
+                gap: 1rem 0;
+            }
+            
+            
+        }
+        .ft-links-inner{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap:0 2rem;
+            @include responsive($desktop){
+                font-size: var(--font-size-mobile-base);
+            }
+            @include responsive($tablet){
+                font-size: var(--font-size-mobile-sm);
+            }
+            a{
+                color: #a7afbe;
+            }
+        }
+        .copyright{
+            color: #a7afbe;
+            @include responsive($desktop){
+                font-size: var(--font-size-mobile-base);
+            }
+            @include responsive($tablet){
+                font-size: var(--font-size-mobile-sm);
+            }
+        }
+    }
+    
+}

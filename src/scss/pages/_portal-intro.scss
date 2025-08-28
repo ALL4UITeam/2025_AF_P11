@@ -1,0 +1,466 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+body{
+    &:has([data-page='islands-status']){
+        background-color: #f3f6f9;
+    }
+}
+/* 무인도서 현황 */
+[data-page='islands-status']{
+    .image-background::after{display: none;}
+    .sublayout__content{
+        position: relative;
+        margin: 0 -2rem;
+        padding: 0 2rem;
+        &::after{
+            content: '';
+            position: absolute;
+            top: 25.5rem;
+            left: 0;
+            width: 100%;
+            bottom: 23rem;
+            background: #3976d6 url('@/assets/images/portal/intro/bgImage.png') no-repeat center top;
+            border-radius: 24rem 0 0 0;
+            overflow: hidden;
+            z-index: -1;
+            @include responsive($desktop){
+                display: none;
+            }
+        }
+        .container{
+            position: relative;
+            //z-index: 2;
+        }
+    }
+}
+
+[data-page='islands-status']{
+    .sublayout__title._white{
+        @include responsive($desktop){
+            color: #000;
+            span::after{
+                background-color: var(--color-primary);
+            }
+        }
+    }
+}
+
+.islands-status-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 4rem;
+    @include responsive($desktop){
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap:3rem;
+    }
+    
+}
+
+.islands-card{
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.6rem;
+    padding: 5rem 4rem 0;
+    height: 46.2rem;
+    @include responsive($desktop){
+        height: 36.2rem;
+        padding: 3rem 2rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    }
+    .label{
+        font-weight: 700;
+        color: #000;
+        line-height: 1;
+        margin-bottom: 1.5rem;
+        font-size: 2.1rem;
+        @include responsive($desktop){
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+    }
+    .value-area{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 6rem;
+        font-weight: 700;
+        .value-1{
+            color: var(--text-color-primary);
+            em{
+                font-weight: 400;
+                color: var(--text-color-tertiary);
+                font-size: 1.9rem;
+            }
+        }
+        .value-2{
+            color: #ebebeb;
+        }
+        @include responsive($desktop){
+            font-size: 4rem;
+        }
+    }
+    .desc{
+        color: #8e8e8e;
+        @include responsive($desktop){
+            font-size: var(--font-size-mobile-base);
+        }
+    }
+    .text{
+        font-size: var(--font-size-lg);
+        em{color: var(--text-color-primary);}
+        padding-top: 4rem;
+        @include responsive($desktop){
+            font-size: var(--font-size-mobile-base);
+            padding-top: 2rem;
+        }
+    }
+    .image{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        text-align: right;
+        img{
+            
+        }
+    }
+}
+
+.islands-status-grid--1{
+    margin-bottom: 8rem;
+    @include responsive($desktop){
+        margin-bottom: 4rem;
+    }
+    
+}
+
+.islands-status-grid--2{
+    .sublayout__title{
+        margin-bottom: 6rem;
+        @include responsive($desktop){
+            margin-bottom: 3rem;
+        }
+        @include responsive($tablet){
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.island-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 4rem;
+    @include responsive($desktop){
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 3rem;
+    }
+}
+.island-card{
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.6rem;
+    padding: 5rem 4rem 5rem;
+    @include responsive($desktop){
+        padding: 3rem 2rem;
+    }
+    .label{
+        font-weight: 700;
+        line-height: 1;
+        font-size: 2.1rem;
+        margin-bottom: 2rem;
+        @include responsive($desktop){
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+    }
+}
+.label-desc{
+    color: var(--text-color-tertiary);
+    font-size: var(--font-size-lg);
+    &.right{
+        text-align: right;
+    }
+    @include responsive($desktop){
+        font-size: var(--font-size-mobile-base);
+    }
+}
+
+.island-count-viewmap{
+    text-align: center;
+    @media (max-width: 768px) {
+        text-align: left;
+    }
+    .img{
+        @media (max-width: 768px) {
+            display: block;
+            width: 100%;
+        }
+        .pc{
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+        .mobile{
+            display: none;
+            @media (max-width: 768px) {
+                display: block;
+            }
+        }
+    }
+    div{
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        @media (max-width: 768px) {
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .label-counting{
+        position: absolute;
+        box-shadow: 1.37px 3.76px 0px rgba(#ededed, .7);
+        border: 1px solid #cecece;
+        border-radius: 1.6rem;
+        padding: 0.8rem 1.5rem;
+        line-height: 1;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 1.7rem;
+        background-color: #fff;
+        em{
+            color: #17a495;
+        }
+        @media (max-width: 768px) {
+            position: static;
+            font-size: 1.1rem;
+            padding: .5rem 0;
+            text-align: center;
+            width: 30%;
+        }
+    }
+    .label-counting--1{
+        top: 13%;
+        left: -30%;
+    }
+    .label-counting--2{
+        top: 26%;
+        left: -25%;
+    }
+    .label-counting--3{
+        top: 12%;
+        right:-20%;
+    }
+    .label-counting--4{
+        top: 39.5%;
+        left: -25%;
+    }   
+    .label-counting--5{
+        top: 52%;
+        left: -24%;
+    }
+    .label-counting--6{
+        top: 69.5%;
+        left: -42%;
+    }   
+    .label-counting--7{
+        top: 39%;
+        right: -32%;
+    }
+    .label-counting--8{
+        top: 56.3%;
+        right: -34%;
+        
+    }
+    .label-counting--9{
+        top: 66%;
+        right: -22%;
+    }
+    .label-counting--10{
+        top: 79%;
+        right: 0;
+    }
+    .label-counting--11{
+        bottom: 2.5%;
+        left: 41%;
+    }
+}
+
+.chart {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: flex-end;
+    position: relative;
+    gap: 0 3rem;
+    padding: 0 2rem;
+    height: 44rem;
+    @include responsive($tablet){
+        gap: 0 1.5rem;
+        padding: 0 1rem;
+    }
+    .bar-wrapper {
+        z-index: 2;
+        position: relative;
+        text-align: center;
+        .percent {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: var(--font-size-lg);
+            color: var(--text-color-quaternary);
+            @include responsive($tablet){
+                font-size: 1.4rem !important;
+                top: -20px;
+            }
+            &.percent1 { color: #13b7a2; font-size: 2.1rem;
+                
+            }
+            &.percent2,
+            &.percent3,
+            &.percent4,
+            &.percent5 {
+                color: #666;
+            }
+        }
+        .bar {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-weight: 700;
+            padding-top: 2rem;
+            font-size: 1.9rem;
+            height: 100%;
+            @include responsive($tablet){
+                font-size: 1.3rem;
+            }
+            &.bar1 {
+                background: #17a495;
+                color: #fff;
+                height: 37.7rem;
+            }
+            &.bar2 { height: 26.7rem; }
+            &.bar3 { height: 23.7rem; }
+            &.bar4 { height: 15.3rem; }
+            &.bar5 { height: 9.6rem; }
+
+            &.bar2,
+            &.bar3,
+            &.bar4,
+            &.bar5 {
+                background: linear-gradient(to bottom, #d2e6ff, #f1f7fe);
+                color: #000;
+            }
+        }
+        .distance{
+            margin-top: 8px;
+            font-size: 1.6rem;
+            color: var(--text-color-tertiary);
+            white-space: nowrap;
+            @include responsive($tablet){
+                font-size: 1.2rem;
+            }
+        }
+    }
+    .line-wraps{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        width: 100%;
+        bottom: 3rem;
+        top: 4rem;
+        @include responsive($tablet){
+            bottom: 2.2rem;
+            top: 4.2rem;
+        }
+    }
+    .lines{
+        height: .3rem;
+        background: url('@/assets/images/portal/intro/repeat-line.png') repeat 0 0;
+    }
+}
+
+.islands-status-grid--3{
+    margin-top: 4rem;
+    .island-card{
+        grid-column: 1 / -1;
+    }
+}
+
+// 무인도서 크기별 분포 차트
+.bysize {
+    &__chart {
+        display: grid;
+        justify-content: space-between;
+        align-items: flex-end;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+    }
+    
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        text-align: center;
+        
+        @media (max-width: 768px) {
+            flex: none;
+            width: 100%;
+            //max-width: 25rem;
+        }
+    }
+    
+    &__visual {
+        margin-bottom: 1.5rem;
+        img {
+            max-width: 100%;
+            height: auto;
+            @media (max-width: 768px) {
+                max-width: 10rem;
+            }
+        }
+    }
+    
+    &__label {
+        color: var(--text-color-tertiary);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+    
+    &__count {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1ca7a6;
+        margin-bottom: 0.5rem;
+        small{
+            font-size: 1.9rem;
+            color: var(--text-color-tertiary);
+            vertical-align: middle;
+        }
+        @media (max-width: 768px) {
+            font-size: 1.7rem;
+        }
+    }
+    
+    &__percent {
+        font-size: 4rem;
+        font-weight: 700;
+        color: #ebebeb;
+        @media (max-width: 768px) {
+            font-size: 1.3rem;
+        }
+    }
+}

@@ -1,0 +1,119 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+[data-page='islands-statistics']{
+    .sublayout__body{
+        position: relative;
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 52rem;
+            background-color: #f3f6f9;
+            z-index: -1;
+        }
+    }
+    .sublayout__header{background-color: #f3f6f9;}
+}
+.statistics{
+    background-color: #fff;
+    border-radius:1.6rem;
+    border: 1px solid #e1e1e1;
+    padding: 4rem;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.03);
+    @media (max-width: $tablet){
+        padding: 2rem;
+    }
+    &-filters{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 6rem;
+        div{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        @media (max-width: $tablet){
+            flex-wrap: wrap;
+            flex-direction: column;
+            margin-bottom: 2rem;
+            gap:0.5rem;
+            div{
+                width: 100%;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .form-select{
+                width: 100%;
+            }
+        }
+    }
+}
+
+.statistics-chart{
+    height: 54rem;
+    @media (max-width: $desktop){
+        height: 35rem;
+    }
+    @media (max-width: $tablet){
+        height: 30rem;
+    }
+}
+
+.statistics-regions{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 4rem 0 9rem;
+    @media (max-width: $tablet){
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        padding: 2rem 0 4rem;
+    }
+    button{
+        border-radius: .6rem;
+        background-color: #f0f1f4;
+        border: 1px solid #e1e1e1;
+        padding: 1.7rem 0;
+        transition: all .3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.4rem;
+        font-size: 1.4rem;
+        color: #1d1d1d;
+        @media (max-width: $tablet){
+            padding: 1.2rem 0;
+            font-size: 1.2rem;
+            gap: .8rem;
+        }
+        span{
+            line-height: 1;
+        }
+        &.active{
+            background-color: #fff;
+            border-color: #1764dc;
+            span{
+                color: #1764dc;
+            }
+        }
+        .chart-type{
+            color: var(--text-color-tertiary);
+            font-size: 1.9rem;
+            @media (max-width: $tablet){
+                font-size: 1.4rem;
+            }
+        }
+        .count{
+            font-size: 2.5rem;
+            font-weight: 700;
+            @media (max-width: $tablet){
+                font-size: 1.8rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,196 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.svg-icon{
+    forced-color-adjust: none;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center center;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: contain;
+    display: inline-flex;
+    transition: all .5s;
+}
+
+// 아이콘 mixin 정의
+@mixin icon-style($icon-url, $width: 2.7rem, $height: 2.7rem) {
+    -webkit-mask-image: url($icon-url);
+    mask-image: url($icon-url);
+    width: $width;
+    height: $height;
+    //background: linear-gradient(to bottom, $gradient-start, $gradient-end);
+}
+
+.ico-layer {
+    @include icon-style('@/assets/images/map/ico-layer.svg');
+    background: linear-gradient(to bottom, #3658D3, #17A595);
+}
+
+.ico-map {
+    @include icon-style('@/assets/images/map/ico-map.svg',1.7rem,1.7rem);
+    background-color: #000;
+}
+.ico-distance {
+    @include icon-style('@/assets/images/map/ico-distance.svg',2rem,2rem);
+    background-color: #000;
+}
+.ico-distance2{
+    @include icon-style('@/assets/images/map/ico-distance-2.svg',3.2rem,3.2rem);
+    background-color: #000;
+}
+.ico-area {
+    @include icon-style('@/assets/images/map/ico-area.svg',3.2rem,3.2rem);
+    background-color: #000;
+}
+.ico-radius {
+    @include icon-style('@/assets/images/map/ico-radius.svg',3.2rem,3.2rem);
+    background-color: #000;
+}
+
+.ico-search{
+    @include icon-style('@/assets/images/map/ico-search.svg',1.8rem,1.8rem);
+    background-color: #fff;
+}
+
+.ico-reset{
+    @include icon-style('@/assets/images/map/ico-reset.svg',2rem,2rem);
+    background-color: #555;
+}
+.ico-info{
+    @include icon-style('@/assets/images/map/ico-info.svg',1.8rem,1.8rem);
+    background-color: #C6C6C6;
+}
+
+.ico-back{
+    @include icon-style('@/assets/images/map/ico-back.svg',2.4rem,2.4rem);
+    background-color: rgba(#8E8E8E,0.5);
+}
+
+.ico-close{
+    @include icon-style('@/assets/images/map/ico-close.svg',2.4rem,2.4rem);
+    background-color: rgba(#8E8E8E,0.5);
+}
+.ico-close2{
+    @include icon-style('@/assets/images/map/ico-close2.svg',2.4rem,2.4rem);
+    background-color: #fff;
+}
+.ico-close-bold{
+    @include icon-style('@/assets/images/map/ico-close-white.svg',2.4rem,2.4rem);
+    background-color: #fff;
+}
+
+.ico-zoom-in{
+    @include icon-style('@/assets/images/map/ico-zoom-in.svg',3.2rem,3.2rem);
+    background-color: #000;
+}
+
+.ico-zoom-out{
+    @include icon-style('@/assets/images/map/ico-zoom-out.svg',3.2rem,3.2rem);
+    background-color: #000;
+}
+.ico-arrow-down{
+    @include icon-style('@/assets/images/map/ico-arrow-down.svg',2rem,2rem);
+    background-color: #000;
+}
+
+.ico-legend-mobile{
+    @include icon-style('@/assets/images/map/ico-legend-mobile.svg',2rem,2rem);
+    background-color: #000;
+}
+
+
+
+@for $i from 1 through 7 {
+    .ico-legend-#{$i}{
+        background-image: url('@/assets/images/map/ico-legend-#{$i}.png');
+        width: 2rem;
+        height: 2rem;
+        display: inline-block;
+        vertical-align: top;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+}
+
+
+@for $i from 1 through 4 {
+    .ico-pin-#{$i}{
+        background-image: url('@/assets/images/map/ico-pin-#{$i}.png');
+        width: 1.8rem;
+        height: 1.8rem;
+        display: inline-block;
+        vertical-align: top;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+}
+.ico-pin-3{
+    background-size: cover;
+    background-position: 50% 0;
+}
+
+
+.ico-pin-4{
+    //@include icon-style('@/assets/images/map/ico-pin-special.svg',1.8rem,1.8rem);
+    background-size: 100% auto;
+}
+
+.marker{
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    // CSS 변수로 색상 변경 지원
+    --marker-color: currentColor;
+    filter: hue-rotate(0deg) saturate(1) brightness(1);
+}
+
+// CSS 변수를 사용한 색상 변경을 위한 필터 적용
+.marker[style*="--marker-color"] {
+    filter: hue-rotate(0deg) saturate(1) brightness(1);
+}
+
+@for $i from 1 through 14 {  
+    .marker-#{$i}{
+        background-image: url('@/assets/images/map/marker-#{$i}.png');
+    }
+}
+
+.icon-download,
+.icon-arrow-right{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+}
+.icon-download{
+    background-image: url('@/assets/images/portal/ico-download.png');
+    width: 1.8rem;
+    height: 1.5rem;
+}
+.icon-arrow-right{
+    background-image: url('@/assets/images/portal/ico-arrow-right.png');
+    width: .9rem;
+    height: 1.4rem;
+}
+.ico-arrow-right2{
+    @include icon-style('@/assets/images/portal/ico-right-arrow.svg',2rem,2rem);
+    background-color: rgb(23,100,220);
+}
+
+/* 파일 아이콘 추가 */
+.ico-file{
+    @include icon-style('@/assets/images/ico_file.svg',2.4rem,2.4rem);
+    background-color: #555;
+    display: inline-block;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+}
