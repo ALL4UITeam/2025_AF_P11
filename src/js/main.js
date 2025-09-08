@@ -1,3 +1,3 @@
-import '../scss/main.scss';
+import "../scss/main.scss";
 
-//console.log('main.js');
+console.log('main.js');

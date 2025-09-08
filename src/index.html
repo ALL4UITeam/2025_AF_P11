@@ -2,7 +2,7 @@
 <html lang="ko">
 
 <head>
-    {{> meta}}
+    
     <style>
         @font-face {
             font-family: 'ChosunGu';
@@ -82,12 +82,13 @@
             display: none;
         }
     </style>
-    <h1>국가해양공간정보 관리 및 활용 플랫폼 구축</h1>
+    <h1>2025 무인도서 서비스 개편 사업</h1>
     
     <div class="link-page">
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="검색어를 입력하세요">
             <button id="searchButton">검색</button>
+              
         </div>
         <table>
             <thead>
@@ -100,15 +101,6 @@
                 </tr>
             </thead>
             <tbody id="tableBody">
-                <tr>
-                    <td>
-                        <a href="./admin/index.html" target="_blank">/admin/index.html</a>
-                    </td>
-                    <td>관리자 페이지</td>
-                    <td>2025-08-28</td>
-                    <td>-</td>
-                    <td>관리자 페이지</td>
-                </tr>
                 {{#each pages}}
                 <tr>
                     <td><a href="./{{name}}" target="_blank">{{name}}</a></td>
