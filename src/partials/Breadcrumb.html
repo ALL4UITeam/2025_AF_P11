@@ -1,11 +1,11 @@
-<nav class="breadcrumb" aria-label="Breadcrumb">
-    <ol>
+<nav class="krds-breadcrumb-wrap" aria-label="현재 경로" id="breadcrumb">
+    <ol class="breadcrumb">
       {{#each items}}
         <li>
           {{#if this.href}}
-            <a href="{{this.href}}">{{this.label}}</a>
+            <a href="{{this.href}}" class="txt">{{this.label}}</a>
           {{else}}
-            <span aria-current="page">{{this.label}}</span>
+            <span aria-current="page" class="txt">{{this.label}}</span>
           {{/if}}
         </li>
       {{/each}}

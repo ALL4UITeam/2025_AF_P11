@@ -3,9 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{{title}}</title>
+  <title>K-Ocean {{title}}</title>
+  <link rel="stylesheet" href="/resources/css/component/output.css">
+  <link rel="stylesheet" href="/resources/css/common/common.css">
 </head>
 <body>
+  <div id="krds-skip-link">
+    <a href="#breadcrumb">본문 바로가기</a>
+  </div>
+  <div id="krds-masthead">
+      <div class="toggle-wrap">
+        <div class="toggle-head">
+          <div class="inner">
+            <span class="nuri-txt">이 누리집은 대한민국 공식 전자정부 누리집입니다.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   {{> Header }}
   <main id="app" class="l-sub">
     {{> Banner title=banner.title subtitle=banner.subtitle }}
