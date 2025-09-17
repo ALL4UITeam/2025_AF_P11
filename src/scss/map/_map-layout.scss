@@ -1,0 +1,489 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+
+$aside-width: 8rem;
+$layer-panel-width: 37rem;
+$right-gap: 1.2rem;
+$zIndex-1: 1;
+$zIndex-2: 2;
+$zIndex-3: 3;
+
+.icon{
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: contain;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrap{
+    height: 100vh;
+    width: 100%;
+}
+.main{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+/* 좌측 */
+.aside{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $aside-width;
+    height: 100%;
+    background: linear-gradient(180deg, #256EF4 0%, #003964 100%);
+}
+.map-logo{
+    height: 8rem;
+    a{
+        display: block;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        font-size: 0;
+    }
+}
+.menu-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    > li{
+        width: 100%;
+        &.current{
+            a{
+                background: rgba(0, 57, 100, 0.70);
+            }
+        }
+        a{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            gap: 0 1.2rem;
+            padding: 2rem 1.2rem;
+            color: #fff;
+            &::after{
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                right: 1.2rem;
+                transform: translateY(-50%);
+                border-radius: 50%;
+                background-color: #fff;
+                width: 4px;
+                height: 4px;
+            }
+            i{
+                mask-repeat: no-repeat;
+                mask-position: center center;
+                mask-size: contain;
+                width: 3.2rem;
+                height: 3.2rem;
+                background-color: #fff;
+            }
+            span{
+                font-size: 1.3rem;
+                font-weight: 400;
+                line-height: 19.5px;
+            }
+        }
+        &.menu-item-1{
+            i{mask-image: url('@/assets/images/map/menu_icon01.svg');}
+        }
+        &.menu-item-2{
+            i{mask-image: url('@/assets/images/map/menu_icon02.svg');}
+        }
+        &.menu-item-3{
+            i{mask-image: url('@/assets/images/map/menu_icon03.svg');}
+        }
+    }
+}
+
+
+/* 좌측 레이어 */
+.map-area{
+    position: relative;
+    width: calc(100% - #{$aside-width});
+    height: 100%;
+    margin-left: $aside-width;
+    #map{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.fav-layers{
+    z-index: 2;
+    position: absolute;
+    left: calc(#{$aside-width} + 2rem);
+    top: 2rem;
+    padding: .8rem 0;
+    display: flex;
+    gap: .8rem;
+    button{
+        display: flex;
+        height: 32px;
+        padding: 8px 12px;
+        align-items: center;
+        gap: 4px;
+        border-radius: 16px;
+        border: 1px solid #CDD1D5;
+        background: #FFF;
+        box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.16);
+        font-size: 1.5rem;
+    }
+}
+
+/* 날씨 정보 카드 */
+.weather-card{
+    z-index: $zIndex-2;
+    position: absolute;
+    bottom: 2rem;
+    left: calc(#{$aside-width} + 2rem);
+    display: flex;
+    padding: 12px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.16);
+    .weather-info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        
+        .weather-icon{
+            display: flex;
+width: 32px;
+height: 32px;
+justify-content: center;
+align-items: center;
+        }
+        
+        .temperature{
+            color: #000;
+            text-align: center;
+            font-family: "Pretendard GOV";
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+    }
+    
+    .air-quality{
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        padding-top: .6rem;
+        .air-quality-item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-self: stretch;
+            &.green{
+                border-top: 3px solid #3FA654;
+                color: #228738;
+                text-align: center;
+                font-family: "Pretendard GOV";
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+            &.blue{
+                border-top: 3px solid #2098F3;
+                color: #096AB3;
+                text-align: center;
+                font-family: "Pretendard GOV";
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+        }
+    }
+}
+
+/* 좌표 정보 */
+.coordinate-info{
+    z-index: $zIndex-2;
+    position: absolute;
+    bottom: $right-gap;
+    right: $right-gap;
+    display: flex;
+    gap: .4rem;
+    
+    .coordinate-item{
+        display: flex;
+        height: 32px;
+        padding: 0 12px;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        border-radius: 4px;
+        border: 1px solid var(--g-00, #FFF);
+        background: rgba(255, 255, 255, 0.70);
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12);
+        backdrop-filter: blur(2px);
+        
+        .coordinate-label{
+            color: var(--g-50, #6D7882);
+            font-family: "Pretendard GOV";
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 19.5px */
+            letter-spacing: var(--typo-letter-spacing-0, 0);
+        }
+        
+        .coordinate-value{
+            color: var(--g-90, #1E2124);
+            font-family: "Pretendard GOV";
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 19.5px */
+            letter-spacing: var(--typo-letter-spacing-0, 0);
+        }
+    }
+}
+
+.layer-panel{ 
+    position: absolute;
+    top: 0;
+    left: calc($aside-width - 16px);
+    z-index: $zIndex-3;
+    width: $layer-panel-width;
+    background: #fff;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 12px 0 12px 0 rgba(0, 0, 0, 0.20);
+    overflow: hidden;
+}
+.layer-panel-wrapper{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.layer-panel-vi{
+    height: 8rem;
+    background: url('@/assets/images/map/panel_vi.png') no-repeat center center;
+}
+.search-section{
+    padding: 1.6rem;
+}
+.search-bar{
+    display: flex;
+    height: 56px;
+    padding: 0 4px 0 16px;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 3px solid var(--gr-1, #256EF4);
+    background: #FFF;
+    .category-select{
+        color: var(--g-90, #1E2124);
+        font-family: "Pretendard GOV";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%; /* 22.5px */
+        letter-spacing: -1px;
+    }
+    .line{
+        display: block;
+        width: 1px;
+        height: 16px;
+        background: var(--g-20, #CDD1D5);
+    }
+    .search-input{
+        font-family: "Pretendard GOV";
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%; /* 25.5px */
+        letter-spacing: -1px;
+        width: 100%;
+        flex: 1;
+        &::placeholder{
+            color: var(--g-40, #8A949E);
+           
+        }
+    }
+    .search-btn{
+        display: flex;
+        width: 48px;
+        height: 48px;
+        padding: 2px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        aspect-ratio: 1/1;
+        background: url('@/assets/images/map/icon_search.svg') no-repeat center center;
+    }
+}
+.layer-list{
+    flex: 1;
+}
+
+/* 툴바 */
+.control-panel{
+    z-index: $zIndex-2;
+    position: absolute;
+    top: 12rem;
+    right: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    .tool-buttons{
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        .tool-btn{
+            display: flex;
+            width: 48px;
+            height: 48px;
+            padding: 4px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2px;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.16);
+            &.active{
+                background: #256EF4;
+                border-color: #256EF4;
+                .tool-text{font-weight: 700;color: #fff;}
+            }
+            .tool-icon{
+                line-height: 1;
+                @extend .icon;
+            }
+            
+            .tool-text{
+                font-size: 0.8rem;
+                font-weight: 700;
+                text-align: center;
+                color: var(--g-60, #58616A);
+                white-space: nowrap;
+            }
+        }
+        .language-btn{ 
+            .tool-icon{@include icon-set('icon_language',2rem,1.4rem,var(--primary-color));}
+            .tool-text{
+                color: var(--primary-color-dark);
+                font-weight: 700;
+                font-size: 1.5rem;
+                line-height: 1;
+            }
+        }
+        .map-type-btn1{
+            .tool-icon{@include icon-set('icon_map01',2.4rem,2.4rem,#6D7882);}
+        }
+        .map-type-btn2{
+            .tool-icon{@include icon-set('icon_map02',2.4rem,2.4rem,#6D7882);}
+        }
+        .layer-btn{
+            .tool-icon{@include icon-set('icon_layer-btn',2.4rem,2.4rem,#6D7882);}
+        }
+        .layer-btn2{
+            .tool-icon{@include icon-set('icon_layer-btn2',2.4rem,2.4rem,#6D7882);}
+        }
+        .measure-btn{
+            .tool-icon{@include icon-set('icon_measure',2.4rem,2.4rem,#6D7882);}
+        }
+        .legend-btn{
+            .tool-icon{@include icon-set('icon_legend',2.4rem,2.4rem,#6D7882);}
+        }
+
+        .group-btn{
+            display: flex;
+            flex-direction: column;
+            gap:2px;
+            background-color: #fff;
+            box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.16);
+            border-radius: 4px;
+            padding: 4px;
+            width: 4.8rem;
+            overflow: hidden;
+            margin: 1.2rem 0;
+            .tool-btn{
+                box-shadow: none;
+                width: 4rem;
+                height: 4rem;
+                &.active{
+                    border: 1px solid var(--color-light-primary-60, #0B50D0);
+                }
+                .tool-text{
+                    font-size: .8rem;
+                }
+                &.active{
+                    .tool-icon{
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    
+    .zoom-control{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 4.8rem;
+        height: 21rem;
+        //padding: 1.2rem 0.8rem;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        gap:.4rem 0;
+        padding: .4rem .8rem;
+
+        .zoom-btn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            .icon{
+                @extend .icon;
+            }
+        }
+        .zoom-in{
+            .icon{@include icon-set('icon_zoom-in',100%,100%,#000);}
+        }
+        .zoom-out{
+            .icon{@include icon-set('icon_zoom-out',100%,100%,#000);}
+        }
+        
+        .zoom-track{
+            flex: 1;
+            width: 0.4rem;
+            margin: 1.2rem 0;
+            background: #e0e0e0;
+            border-radius: 0.2rem;
+            position: relative;
+            
+            .zoom-slider{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 1.2rem;
+                height: 1.2rem;
+                background: #256EF4;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        }
+    }
+}

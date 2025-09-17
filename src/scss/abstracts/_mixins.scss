@@ -3,3 +3,10 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin icon-set($name, $width, $height, $color) {
+  width: $width;
+  height: $height;
+  mask-image: url('@/assets/images/map/#{$name}.svg');
+  background-color: $color;
+}

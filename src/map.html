@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./lib/ol/ol.css">
+    <link rel="stylesheet" href="./lib/swiper/swiper-bundle.min.css">
+    <script src="./lib/ol/ol.js"></script>
+    <script src="./lib/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="main">
+        <div class="aside">
+            <h1 class="map-logo"><a href="#">K-OCEAN</a></h1>
+            <ul class="menu-list">
+                <li class="current menu-item-1"><a href="#"><i></i><span>해양정보</span></a></li>
+                <li class="menu-item-2"><a href="#"><i></i><span>분석</span></a></li>
+                <li class="menu-item-3"><a href="#"><i></i><span>재난안전</span></a></li>
+            </ul>
+        </div>
+
+        <div class="layer-panel">
+            <div class="layer-panel-wrapper">
+                <div class="layer-panel-vi"></div>
+                <div class="search-section">
+                    <div class="search-bar">
+                        <select class="category-select">
+                            <option>갯벌 체험</option>
+                        </select>
+                        <span class="line"></span>
+                        <input type="text" placeholder="검색어를 입력하세요" class="search-input">
+                        <button class="search-btn">
+                            <span class="visually-hidden">검색</span>
+                        </button>
+                    </div>
+                    <div class="category-tabs">
+                        <button class="tab active">전체</button>
+                        <button class="tab">지형/지명</button>
+                        <button class="tab active">항해지원</button>
+                        <button class="tab">...</button>
+                    </div>
+                    <div class="item-count">총 2,918건</div>
+                </div>
+                <div class="layer-list">
+                    
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="fav-layers">
+            <button type="button">어장</button>
+            <button type="button">양식장(점)</button>
+            <button type="button">공동어업구역</button>
+            <button type="button">양식장(면)</button>
+        </div>
+
+        <div class="weather-card">
+            <div class="weather-info">
+                <div class="weather-icon"><img src="./assets/images/map/weather_01.svg" alt=""></div>
+                <div class="temperature">31°</div>
+            </div>
+            <div class="air-quality">
+                <div class="air-quality-item green">
+                    <span class="quality-label">미세</span>
+                </div>
+                <div class="air-quality-item blue">
+                    <span class="quality-label">초미세</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <div class="tool-buttons">
+                <button class="tool-btn language-btn">
+                    <span class="tool-icon"></span>
+                    <span class="tool-text">EN</span>
+                </button>
+                <div class="group-btn">
+                    <button class="tool-btn map-type-btn1 active">
+                        <span class="tool-icon"></span>
+                        <span class="tool-text">일반지도</span>
+                    </button>
+                    <button class="tool-btn map-type-btn2">
+                        <span class="tool-icon"></span>
+                        <span class="tool-text">영상지도</span>
+                    </button>
+                </div>
+                <button class="tool-btn layer-btn">
+                    <span class="tool-icon"></span>
+                    <span class="tool-text">레이어목록</span>
+                </button>
+                <button class="tool-btn layer-btn2">
+                    <span class="tool-icon"></span>
+                    <span class="tool-text">사용자레이어</span>
+                </button>
+                <button class="tool-btn measure-btn">
+                    <span class="tool-icon"></span>
+                    <span class="tool-text">측정</span>
+                </button>
+                <button class="tool-btn legend-btn">
+                    <span class="tool-icon"></span>
+                    <span class="tool-text">범례</span>
+                </button>
+            </div>
+            <div class="zoom-control">
+                <button class="zoom-btn zoom-in" title="확대">
+                    <i class="icon"></i>
+                </button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="131" viewBox="0 0 16 131" fill="none">
+                    <path d="M2.5 81H13.5M2.5 41H13.5M2.5 121H13.5M2.5 11H13.5M2.5 91H13.5M2.5 51H13.5M2.5 21H13.5M2.5 101H13.5M2.5 61H13.5M2.5 31H13.5M2.5 111H13.5M2.5 71H13.5" stroke="#E4E4E4"/>
+                    <line x1="8" y1="1" x2="7.99999" y2="131" stroke="#C6C6C6"/>
+                    <line x1="0.5" y1="0.5" x2="15.5" y2="0.5" stroke="#C6C6C6"/>
+                    <line x1="0.5" y1="130.5" x2="15.5" y2="130.5" stroke="#C6C6C6"/>
+                  </svg>
+                <button class="zoom-btn zoom-out" title="축소">
+                    <i class="icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="coordinate-info">
+            <div class="coordinate-item">
+                <span class="coordinate-label">위도 :</span>
+                <span class="coordinate-value">125°54`9.13"E</span>
+            </div>
+            <div class="coordinate-item">
+                <span class="coordinate-label">경도 :</span>
+                <span class="coordinate-value">125°54`9.13"E</span>
+            </div>
+        </div>
+
+        <div class="map-area">
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+<script type="module">
+    import './scss/map.scss';
+    import './js/page/map.js';
+</script>
+
+</body>
+</html>

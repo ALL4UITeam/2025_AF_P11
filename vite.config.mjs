@@ -92,6 +92,11 @@ export default defineConfig(() => {
     root: 'src',
     base: './',
     publicDir: '../public',
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src')
+      }
+    },
     build: {
       outDir: '../dist',
       emptyOutDir: true,
@@ -101,7 +106,20 @@ export default defineConfig(() => {
             const name = path.basename(file, '.html')
             return [name, path.resolve(__dirname, file)]
           })
-        )
+        ),
+        output: {
+          entryFileNames: 'assets/js/[name].js',
+          chunkFileNames: 'assets/js/[name].js',
+          assetFileNames: ({ name }) => {
+            if (/\.(css)$/.test(name ?? '')) {
+              return 'assets/css/[name][extname]'
+            }
+            if (/\.(png|jpe?g|gif|svg|webp)$/.test(name ?? '')) {
+              return 'assets/images/[name][extname]'
+            }
+            return 'assets/[name][extname]'
+          }
+        }
       }
     },
     plugins: [
@@ -116,7 +134,37 @@ export default defineConfig(() => {
           return pageData[name] || {} // 나머지는 pageData에서
         }
       }),
-      applyLayoutPlugin
+      applyLayoutPlugin,
+      {
+        name: 'no-css-minify',
+        generateBundle(_, bundle) {
+          for (const fileName in bundle) {
+            if (fileName.endsWith('.css')) {
+              const chunk = bundle[fileName]
+              if ('code' in chunk) {
+                chunk.code = chunk.code.replace(/}/g, '}\n')
+              }
+            }
+          }
+        }
+      },
+      {
+        name: 'cleanup-html',
+        closeBundle() {
+          const distPath = path.resolve(__dirname, 'dist')
+          const htmlFiles = fs.readdirSync(distPath).filter(f => f.endsWith('.html'))
+
+          htmlFiles.forEach(file => {
+            const filePath = path.join(distPath, file)
+            let content = fs.readFileSync(filePath, 'utf-8')
+            content = content.replace(/ crossorigin/g, '')
+            content = content.replace(/<link rel="modulepreload" [^>]+?>/g, '')
+            fs.writeFileSync(filePath, content)
+          })
+
+          console.log('빌드 후 modulepreload & crossorigin 제거 완료')
+        }
+      }
     ]
   }
 })

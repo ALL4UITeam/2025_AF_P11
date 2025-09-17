@@ -1,0 +1,58 @@
+
+.l-sub{
+    #contents{
+        padding-bottom: 120px;
+    }
+}
+
+.sub-banner{
+    height: 200px;
+    background: url("@/assets/images/portal/vi01.png") no-repeat center center / cover;
+    overflow: hidden;
+    position: relative;
+    .container{
+        position: relative;
+        z-index: 1;
+        height: 100%;
+    }
+    &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        width: calc(50vw - 600px);
+        background: #fff;
+        bottom: 0;
+        height: 88px;
+        @media (max-width: 1280px) {
+            width: calc(50vw - 400px);
+        }
+    }
+}
+
+.page-title{
+    margin-bottom: 50px;
+    font-size: 40px;
+}
+
+
+#breadcrumb{
+    background: url("@/assets/images/portal/breadcrumb.png") no-repeat right center;
+    position: absolute;
+    bottom: 0;
+    left: 24px;
+    margin-bottom: 0;
+    height: 88px;
+    width: 500px;
+    display: block;
+    padding-top: 0;
+    > div{
+        width: calc(100% - 188px);
+        height: 100%;
+        background-color: #fff;
+        padding-top: 24px;
+    }
+    .breadcrumb{
+        
+    }
+}
