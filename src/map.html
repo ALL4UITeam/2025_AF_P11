@@ -83,10 +83,81 @@
 
         <div class="detail-panel">
             <div class="detail-panel-wrapper">
-                <div class="detail-panel-header"></div>
-                <div class="detail-panel-content">
+                <div class="detail-panel-header">
+                    <button class="detail-panel-back">
+                        <span class="visually-hidden">뒤로가기</span>
+                    </button>
+                    <div class="detail-panel-header-title">
+                        <h3 class="title">해양지명</h3>
+                        <div class="utils">
+                            <button class="util-btn util-btn-meta">메타정보 보기 <i></i></buttonㅁ>
+                            <button class="util-btn util-btn-download">메타정보 다운로드 <i></i></buttonㅁ>
+                        </div>
+                    </div>
                     
-                    <div class="division"></div>
+                    <button class="detail-panel-close">
+                        <span class="visually-hidden">닫기</span>
+                    </button>
+
+                </div>
+                <div class="detail-panel-content">
+                    <div class="total-count">총 <b>2,918</b>건</div>
+                    <div class="depth-layer-list">
+                        <div class="depth-layer-item">
+                            <button type="button" class="depth-layer-btn">
+                                <span>지형/지명</span>
+                                <i class="icon-layer"></i>
+                            </button>
+                        </div>
+                        <div class="depth-layer-item">
+                            <button type="button" class="depth-layer-btn">
+                                <span>지형/지명</span>
+                                <i class="icon-layer"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="layer-info">
+                        <div class="link-info">
+                            <a href="#">
+                                <i class="icon_mark"></i>
+                                <span>갯벌활동(해루질) 안전 길라잡이</span>
+                                <i class="arrow"></i>
+                            </a>
+                        </div>
+
+                        <div class="detail-content">
+                            <section class="detail-content-section">
+                                <h4 class="detail-content-title">일반 개요</h4>
+                                <div class="detail-content-item">
+                                    <dl class="detail-content-abb">
+                                        <dt>해당자료의 자료명</dt>
+                                        <dd>간출물골</dd>
+                                    </dl>
+                                    <dl class="detail-content-abb">
+                                        <dt>요약</dt>
+                                        <dd>썰물 혹은 흐름 동안에 조간대 지역에서 물의 자연적인 배수로로, 전자해도기반 간출물골 해양객체 선형정보</dd>
+                                    </dl>
+                                </div>
+                            </section>
+                            <div class="division"></div>
+                            <section class="detail-content-section">
+                                <h4 class="detail-content-title">상세정보</h4>
+                                <div class="detail-content-item">
+                                    <ul class="detail-content-list">
+                                        <li class="list-item">
+                                            <strong class="subject">목적</strong>
+                                            <div class="desc">해양안전사고 예방에 활용</div>
+                                        </li>
+                                        <li class="list-item">
+                                            <strong class="subject">주제분류1 </strong>
+                                            <div class="desc">안전</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -177,6 +248,53 @@
         <div class="map-area">
             <div id="map"></div>
         </div>
+
+        <div class="option-panel" id="optionLayerList">
+            <div class="option-panel-wrapper">
+                <div class="option-panel-header">
+                    <h4 class="option-panel-title">레이어 목록</h4>
+                </div>
+                <div class="option-panel-content">
+                    <div class="layer-list">
+                        <div class="layer-item">
+                            <div class="layer-btn-lv2">
+                                <i class="icon icon-legend-1"></i>
+                                <span class="layer-name">지형/지명</span>
+                                <span class="line"></span>
+                                <div class="switch-btn">
+                                    <label class="switch-toggle">
+                                        <input type="checkbox">
+                                        <i></i>
+                                    </label>
+                                </div>
+                            </div>
+                            <button class="layer-btn-del" title="삭제">
+                                <span class="visually-hidden">삭제</span>
+                            </button>
+                        </div>
+                        <div class="layer-item">
+                            <div class="layer-btn-lv2">
+                                <i class="icon icon-legend-1"></i>
+                                <span class="layer-name">지형/지명</span>
+                                <span class="line"></span>
+                                <div class="switch-btn">
+                                    <label class="switch-toggle">
+                                        <input type="checkbox">
+                                        <i></i>
+                                    </label>
+                                </div>
+                            </div>
+                            <button class="layer-btn-del" title="삭제">
+                                <span class="visually-hidden">삭제</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
     </div>
 </div>
 <script type="module">
