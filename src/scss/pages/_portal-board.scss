@@ -172,6 +172,9 @@
             gap:1rem;
         }
     }
+    .krds-form-select{
+        width: 20rem;
+    }
     .krds-form-select,
     .krds-input{
         height: 4.8rem;
@@ -453,7 +456,7 @@
         padding-top: 4rem;
         text-align: right;
         @media (max-width: 768px) {
-            padding: 2rem;
+            padding-top: 2rem;
         }
     }
     
@@ -495,10 +498,10 @@
         
         &.active {
             .faq-text{
-                color: var(--color-primary);
+                color: var(--primary-color-dark);
                 &::before{
-                    background-color: var(--color-primary);
-                    border-color: var(--color-primary);
+                    background-color: var(--primary-color-dark);
+                    border-color: var(--primary-color-dark);
                 }
             }
             .faq-icon {
@@ -592,8 +595,8 @@
                border-radius: 50%;
                width: 3.2rem;
                height: 3.2rem;
-               border: 1px solid #17A595;
-               background-color: #17A595;
+               border: 1px solid var(--primary-color);
+               background-color: var(--primary-color);
                color: #fff;
                display: inline-flex;
                align-items: center;
@@ -618,6 +621,13 @@
             @media (max-width: $tablet) {
                 padding: 0 2rem 1.5rem 2rem;
             }
+        }
+    }
+}
+.notice-detail__actions{
+    .krds-btn{
+        @media (max-width: 768px) {
+            font-size: 1.6rem;
         }
     }
 }

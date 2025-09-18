@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8" />
+        <title>K-OCEAN 플랫폼 관리자</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link href="assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+        <!-- App css -->
+        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+        <!-- Icons -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+        <script src="assets/js/head.js"></script>
+
+
+    </head>
+
+    <!-- body start -->
+    <body data-menu-color="light" data-sidebar="default">
+
+        <!-- Begin page -->
+        <div id="app-layout">
+
+
+            <!-- Topbar Start -->
+            <div class="topbar-custom">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between">
+                        <ul class="list-unstyled topnav-menu mb-0 d-flex align-items-center">
+                            <li>
+                                <button class="button-toggle-menu nav-link">
+                                    <i data-feather="menu" class="noti-icon"></i>
+                                </button>
+                            </li>
+                        </ul>
+
+                        <ul class="list-unstyled topnav-menu mb-0 d-flex align-items-center">
+              
+                            <!-- User Dropdown -->
+                            <li class="dropdown notification-list topbar-dropdown">
+                                <a class="nav-link nav-user me-0" href="#" role="button">
+                                    <i class="mdi mdi-location-exit fs-16 align-middle"></i>
+                                    <span>로그아웃</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end Topbar -->
+
+            <!-- Left Sidebar Start -->
+            <div class="app-sidebar-menu">
+                <div class="h-100" data-simplebar>
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+
+                        <div class="logo-box">
+                            <a href="##" class="logo">
+                                <span class="logo-sm">
+                                    <img src="assets/images/logo.png" alt="" height="32">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="assets/images/logo.png" alt="" height="32">
+                                </span>
+                            </a>
+                        </div>
+
+                        <ul id="side-menu">
+                            <li>
+                                <a href="#sidebar01" data-bs-toggle="collapse">
+                                    <span> 통계관리 </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebar01">
+                                    <ul class="nav-second-level">
+                                        <li><a href="##" class="tp-link">접속통계</a></li>
+                                        <li><a href="##" class="tp-link">레이어 사용통계</a></li>
+                                        <li><a href="##" class="tp-link">데이터셋 조회 통계</a></li>
+                                        <li><a href="##" class="tp-link">OpenAPI 신청통계</a></li>
+                                        <li><a href="##" class="tp-link">OpenAPI 사용통계</a></li>
+                                        <li><a href="##" class="tp-link">OpenAPI 해아름 통계</a></li>
+                                        <li><a href="##" class="tp-link">해양과학조사자료 통계</a></li>
+                                        <li><a href="##" class="tp-link">다운로드정보 통계</a></li>
+                                        <li><a href="##" class="tp-link">메뉴 사용통계</a></li>
+                                        <li><a href="##" class="tp-link">검색어 통계</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#sidebar02" data-bs-toggle="collapse">
+                                    <span> 게시판 관리 </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebar02">
+                                    <ul class="nav-second-level">
+                                        <li><a href="board-list.html" class="tp-link">공지사항 관리</a></li>
+                                        <li><a href="##" class="tp-link">FAQ 관리</a></li>
+                                        <li><a href="##" class="tp-link">Cook-Book 관리</a></li>
+                                        <li><a href="##" class="tp-link">팝업 관리</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#sidebar03" data-bs-toggle="collapse">
+                                    <span> 정보 관리 </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebar03">
+                                    <ul class="nav-second-level">
+                                        <li><a href="##" class="tp-link">Open-API 관리</a></li>
+                                        <li><a href="##" class="tp-link">메타정보 관리</a></li>
+                                        <li><a href="##" class="tp-link">데이터셋 관리</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#sidebar04" data-bs-toggle="collapse">
+                                    <span> 시스템관리 </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebar04">
+                                    <ul class="nav-second-level">
+                                        <li><a href="#" class="tp-link">사용자 관리</a></li>
+                                        <li><a href="#" class="tp-link">권한 관리</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="#sidebar05" data-bs-toggle="collapse">
+                                    <span> 컴포넌트 </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebar05">
+                                    <ul class="nav-second-level">
+                                        <li><a href="./ui-buttons.html" class="tp-link">버튼</a></li>
+                                        <li><a href="./ui-tables.html" class="tp-link">테이블</a></li>
+                                        <li><a href="./ui-forms.html" class="tp-link">폼</a></li>
+                                        <li><a href="./ui-modals.html" class="tp-link">모달</a></li>
+                                        <li><a href="./ui-tabs.html" class="tp-link">탭</a></li>
+                                        <li><a href="./icons-mdi.html" class="tp-link">아이콘</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+            
+                    </div>
+                    <!-- End Sidebar -->
+
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+        
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+
+                        <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
+                            <div class="flex-grow-1">
+                                <h4 class="fs-18 fw-semibold m-0">폼</h4>
+                            </div>
+        
+                        </div>
+
+                        <!-- General Form -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">인풋</h5>
+                                    </div><!-- end card header -->
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label for="simpleinput" class="form-label">텍스트</label>
+                                                        <input type="text" id="simpleinput" class="form-control">
+                                                    </div>
+                                                    
+                                                    <div class="mb-3">
+                                                        <label for="example-password" class="form-label">비밀번호</label>
+                                                        <input type="password" id="example-password" class="form-control" value="password">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="example-textarea" class="form-label">텍스트 영역</label>
+                                                        <textarea class="form-control" id="example-textarea" rows="5" spellcheck="false"></textarea>
+                                                    </div> 
+
+                                                </form>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label for="example-select" class="form-label">입력 선택</label>
+                                                        <select class="form-select" id="example-select">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                        </select>
+                                                    </div>
+
+
+                                                    <div class="mb-3">
+                                                        <label for="exampleColorInput" class="form-label">색상 선택</label>
+                                                        <input type="color" id="exampleColorInput" value="#563d7c" title="Choose your color" class="form-control form-control-color">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label for="example-date" class="form-label">날짜</label>
+                                                        <input type="date" id="example-date" class="form-control" name="date">
+                                                    </div>
+
+                                        
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                           
+                            <div class="col-lg-6">
+                                <div class="card">
+
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">입력 그룹</h5>
+                                    </div><!-- end card header -->
+                                    
+                                    <div class="card-body">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1">@</span>
+                                            <input type="text" class="form-control" placeholder="사용자명" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+                                          
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="받는 사람 사용자명" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                            <span class="input-group-text" id="basic-addon2">@example.com</span>
+                                        </div>
+                                          
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="card">
+
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">파일첨부</h5>
+                                    </div><!-- end card header -->
+                                    
+                                    <div class="card-body">
+
+                                      
+
+                                        <div class="mb-0">
+                                            <label class="form-label">사용자 정의 파일 입력</label>
+                                            <div class="input-group mb-3">
+                                                <input type="file" class="form-control" id="inputGroupFile02">
+                                                <label class="input-group-text" for="inputGroupFile02">업로드</label>
+                                            </div>
+
+                                            <div class="input-group">
+                                                <label class="input-group-text" for="inputGroupFile01">업로드</label>
+                                                <input type="file" class="form-control" id="inputGroupFile01">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="card">
+
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">스위치</h5>
+                                    </div><!-- end card header -->
+                                    
+                                    <div class="card-body">
+
+                                        <div class="form-check form-switch mb-2">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                            <label class="form-check-label" for="flexSwitchCheckDefault">기본 스위치 체크박스 입력</label>
+                                        </div>
+                                        <div class="form-check form-switch mb-2">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                            <label class="form-check-label" for="flexSwitchCheckChecked">선택된 스위치 체크박스 입력</label>
+                                        </div>
+                                        <div class="form-check form-switch mb-2">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDisabled" disabled>
+                                            <label class="form-check-label" for="flexSwitchCheckDisabled">비활성 스위치 체크박스 입력</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card">
+
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">달력</h5>
+                                    </div><!-- end card header -->
+                                    
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <label class="form-label">Basic</label>
+                                            <input type="text" class="form-control" id="basic-datepicker" placeholder="Basic datepicker">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </div> <!-- container-fluid -->
+
+                </div> <!-- content -->
+
+                <!-- Footer Start -->
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col fs-13 text-muted text-center">
+                                &copy; 2025 K-OCEAN. All rights reserved.
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- end Footer -->
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+
+        <!-- Vendor -->
+        <script src="assets/libs/jquery/jquery.min.js"></script>
+        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="assets/libs/node-waves/waves.min.js"></script>
+        <script src="assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+        <script src="assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
+        <script src="assets/libs/feather-icons/feather.min.js"></script>
+        <!-- Flatpickr Timepicker Plugin js -->
+        <script src="assets/libs/flatpickr/flatpickr.min.js"></script>
+
+        <script src="assets/js/pages/form-picker.js"></script>
+        <!-- App js-->
+        <script src="assets/js/app.js"></script>
+        
+    </body>
+</html>

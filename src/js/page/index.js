@@ -1,7 +1,8 @@
 
-import { buttonClick, toggleTab } from '../common/ui.js'
-
 document.addEventListener('DOMContentLoaded', () => {
-  toggleTab('.main-tab')
-  buttonClick('.main-button')
+  const btnAllmenu = document.querySelector('#btnAllMenu');
+  btnAllmenu.addEventListener('click', () => {
+    const mobileNav = document.querySelector('#mobile-nav');
+    mobileNav.classList.toggle('active');
+  });
 })
