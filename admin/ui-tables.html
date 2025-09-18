@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8" />
+        <title>K-OCEAN 플랫폼 관리자</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- App css -->
+        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+        <!-- Icons -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+        <script src="assets/js/head.js"></script>
+
+
+    </head>
+
+    <!-- body start -->
+    <body data-menu-color="light" data-sidebar="default">
+
+        <!-- Begin page -->
+        <div id="app-layout">
+
+
+            <!-- Topbar Start -->
+            <div class="topbar-custom">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between">
+                        <ul class="list-unstyled topnav-menu mb-0 d-flex align-items-center">
+                            <li>
+                                <button class="button-toggle-menu nav-link">
+                                    <i data-feather="menu" class="noti-icon"></i>
+                                </button>
+                            </li>
+                        </ul>
+
+                        <ul class="list-unstyled topnav-menu mb-0 d-flex align-items-center">
+              
+                            <!-- User Dropdown -->
+                            <li class="dropdown notification-list topbar-dropdown">
+                                <a class="nav-link nav-user me-0" href="#" role="button">
+                                    <i class="mdi mdi-location-exit fs-16 align-middle"></i>
+                                    <span>로그아웃</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end Topbar -->
+
+            <!-- Left Sidebar Start -->
+            <div class="app-sidebar-menu">
+                <div class="h-100" data-simplebar>
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+
+                        <div class="logo-box">
+                            <a href="##" class="logo">
+                                <span class="logo-sm">
+                                    <img src="assets/images/logo.png" alt="" height="32">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="assets/images/logo.png" alt="" height="32">
+                                </span>
+                            </a>
+                        </div>
+
+                        <ul id="side-menu">
+                            <li>
+                                <a href="#sidebar01" data-bs-toggle="collapse">
+                                    <span> 통계관리 </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebar01">
+                                    <ul class="nav-second-level">
+                                        <li><a href="##" class="tp-link">접속통계</a></li>
+                                        <li><a href="##" class="tp-link">레이어 사용통계</a></li>
+                                        <li><a href="##" class="tp-link">데이터셋 조회 통계</a></li>
+                                        <li><a href="##" class="tp-link">OpenAPI 신청통계</a></li>
+                                        <li><a href="##" class="tp-link">OpenAPI 사용통계</a></li>
+                                        <li><a href="##" class="tp-link">OpenAPI 해아름 통계</a></li>
+                                        <li><a href="##" class="tp-link">해양과학조사자료 통계</a></li>
+                                        <li><a href="##" class="tp-link">다운로드정보 통계</a></li>
+                                        <li><a href="##" class="tp-link">메뉴 사용통계</a></li>
+                                        <li><a href="##" class="tp-link">검색어 통계</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#sidebar02" data-bs-toggle="collapse">
+                                    <span> 게시판 관리 </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebar02">
+                                    <ul class="nav-second-level">
+                                        <li><a href="board-list.html" class="tp-link">공지사항 관리</a></li>
+                                        <li><a href="##" class="tp-link">FAQ 관리</a></li>
+                                        <li><a href="##" class="tp-link">Cook-Book 관리</a></li>
+                                        <li><a href="##" class="tp-link">팝업 관리</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#sidebar03" data-bs-toggle="collapse">
+                                    <span> 정보 관리 </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebar03">
+                                    <ul class="nav-second-level">
+                                        <li><a href="##" class="tp-link">Open-API 관리</a></li>
+                                        <li><a href="##" class="tp-link">메타정보 관리</a></li>
+                                        <li><a href="##" class="tp-link">데이터셋 관리</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#sidebar04" data-bs-toggle="collapse">
+                                    <span> 시스템관리 </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebar04">
+                                    <ul class="nav-second-level">
+                                        <li><a href="#" class="tp-link">사용자 관리</a></li>
+                                        <li><a href="#" class="tp-link">권한 관리</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="#sidebar05" data-bs-toggle="collapse">
+                                    <span> 컴포넌트 </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebar05">
+                                    <ul class="nav-second-level">
+                                        <li><a href="./ui-buttons.html" class="tp-link">버튼</a></li>
+                                        <li><a href="./ui-tables.html" class="tp-link">테이블</a></li>
+                                        <li><a href="./ui-forms.html" class="tp-link">폼</a></li>
+                                        <li><a href="./ui-modals.html" class="tp-link">모달</a></li>
+                                        <li><a href="./ui-tabs.html" class="tp-link">탭</a></li>
+                                        <li><a href="./icons-mdi.html" class="tp-link">아이콘</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+            
+                    </div>
+                    <!-- End Sidebar -->
+
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+        
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+
+                        <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
+                            <div class="flex-grow-1">
+                                <h4 class="fs-18 fw-semibold m-0">테이블</h4>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Basic Example -->
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">기본 예제</h5>
+                                    </div><!-- end card header -->
+
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">이름</th>
+                                                        <th scope="col">직급급</th>
+                                                        <th scope="col">전화번호</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>홍길동</td>
+                                                        <td>사원</td>
+                                                        <td>336-508-2157</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>김길동</td>
+                                                        <td>사원</td>
+                                                        <td>646-473-2057</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>이길동</td>
+                                                        <td>직급</td>
+                                                        <td>281-308-0793</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hoverable Rows -->
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">호버 테이블</h5>
+                                    </div><!-- end card header -->
+
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">이름</th>
+                                                        <th scope="col">직급</th>
+                                                        <th scope="col">연락처</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>홍길동</td>
+                                                        <td>사원</td>
+                                                        <td>336-508-2157</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>홍길동</td>
+                                                        <td>사원</td>
+                                                        <td>646-473-2057</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>이길동</td>
+                                                        <td>대표</td>
+                                                        <td>281-308-0793</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- Bordered Tables -->
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">테두리 테이블</h5>
+                                    </div><!-- end card header -->
+
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">이름</th>
+                                                        <th scope="col">직급</th>
+                                                        <th scope="col">전화번호</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>홍길동</td>
+                                                        <td>직급</td>
+                                                        <td>336-508-2157</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>이름</td>
+                                                        <td>직급</td>
+                                                        <td>646-473-2057</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>이름</td>
+                                                        <td>직급</td>
+                                                        <td>281-308-0793</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Borderless Table -->
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">선없는 테이블</h5>
+                                    </div><!-- end card header -->
+
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-borderless mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">이름</th>
+                                                        <th scope="col">직급</th>
+                                                        <th scope="col">연락처</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>홍길동</td>
+                                                        <td>직급</td>
+                                                        <td>336-508-2157</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>이름</td>
+                                                        <td>직급</td>
+                                                        <td>646-473-2057</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>이름</td>
+                                                        <td>직급</td>
+                                                        <td>281-308-0793</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+                       
+
+                    </div> <!-- container-fluid -->
+
+                </div> <!-- content -->
+
+                <!-- Footer Start -->
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col fs-13 text-muted text-center">
+                                &copy; 2025 K-OCEAN. All rights reserved.
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- end Footer -->
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+
+        <!-- Vendor -->
+        <script src="assets/libs/jquery/jquery.min.js"></script>
+        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="assets/libs/node-waves/waves.min.js"></script>
+        <script src="assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+        <script src="assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
+        <script src="assets/libs/feather-icons/feather.min.js"></script>
+
+        <!-- App js-->
+        <script src="assets/js/app.js"></script>
+        
+    </body>
+</html>
