@@ -1,510 +1,161 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>K-OCEAN</title>
-    <link rel="stylesheet" href="./lib/ol/ol.css">
-    <link rel="stylesheet" href="./lib/swiper/swiper-bundle.min.css">
-    <script src="./lib/ol/ol.js"></script>
-    <script src="./lib/swiper/swiper-bundle.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>K-OCEAN</title>
+  <link rel="stylesheet" href="./lib/ol/ol.css">
+  <link rel="stylesheet" href="./lib/swiper/swiper-bundle.min.css">
+  <script src="./lib/ol/ol.js"></script>
+  <script src="./lib/swiper/swiper-bundle.min.js"></script>
+  <script src="./js/page/map.js"></script>
 </head>
 
 <body>
-<div class="wrap">
+
+  <div class="wrap">
+    <nav id="map-nav">
+      <header class="map-nav-header">
+          <h1 class="map-nav-logo"><a href="#">K-OCEAN</a></h1>
+          <div class="map-nav-h-utils">
+              <a href="#" class="mobile-en">EN</a>
+              <button class="map-nav-header-btn">
+                  열림
+              </button>
+          </div>
+      </header>
+      <div class="map-gnb">
+          <ul>
+              <li>
+                  <a href="#">해양지도 서비스</a>
+                  <div class="map-gnb-submenu">
+                      <ul>
+                          <li><a href="#">해양지도 서비스</a></li>
+                      </ul>
+                  </div>
+              </li>
+              <li>
+                  <a href="#">플랫폼 소개</a>
+                  <div class="map-gnb-submenu">
+                      <ul>
+                          <li><a href="#">K-OCEAN 플랫폼 소개</a></li>
+                          <li><a href="#">K-OCEAN 로드맵</a></li>
+                      </ul>
+                  </div>
+              </li>
+              <li>
+                  <a href="#">서비스활용</a>
+                  <div class="map-gnb-submenu">
+                      <ul>
+                          <li><a href="#">데이터 다운로드</a></li>
+                          <li><a href="#">Open-API</a></li>
+                          <li><a href="#">통계서비스</a></li>
+                          <li><a href="#">Cook-Book</a></li>
+                          <li><a href="#">공간정보 법령 및 규정</a></li>
+                      </ul>
+                  </div>
+              </li>
+              <li>
+                  <a href="#">커뮤니티</a>
+                  <div class="map-gnb-submenu">
+                      <ul>
+                          <li><a href="#">공지사항</a></li>
+                          <li><a href="#">자주하는 질문</a></li>
+                      </ul>
+                  </div>
+              </li>
+          </ul>
+      </div>
+    </nav>
     <div class="main">
+      {{> Map-aside }}
+      <!-- // aside -->
 
-        <div class="map-header">
-            <header id="header" class="header">
-            <div class="header-container">
-                <div class="header-l">
-                <h1 class="logo"><a href="/main.html" title="홈 바로가기">K-OCEAN</a></h1>
-                </div>
-                <div class="header-r">
-                <nav id="nav">
-                    <ul class="gnb-list" id="gnb">
-                    <li class="gnb-lv-1">
-                        <a href="#" class="gnb-lv-1-item before-none">해양지도 서비스</a>
-                        <div class="gnb-dropmenu gnb-dropmenu-1">
-                        <div class="gnb-dropmenu-info">
-                            <h3>해양지도 서비스</h3>
-                            <p>해양 공간의 다양한 정보를 통합된 하나의 지도와 데이터로 제공합니다.</p>
-                        </div>
-                        <ul>
-                            <li class="gnb-lv-2">
-                            <a href="#" class="gnb-lv-2-item">
-                                <div class="tit">해양정보</div>
-                                <div class="desc">해양 공간의 다양한 정보를 통합된 하나의 지도와 데이터로 제공합니다.</div>
-                                <div class="icon-arrow"></div>
-                            </a>
-                            </li>
-                        </ul>
-                        </div>
-                    </li>
-                    <li class="gnb-lv-1">
-                        <a href="#" class="gnb-lv-1-item">플랫폼 소개</a>
-                        <div class="gnb-dropmenu gnb-dropmenu-2">
-                        <div class="gnb-dropmenu-info">
-                            <h3>플랫폼 소개</h3>
-                            <p>K-OCEAN 플랫폼의 장기적인 발전방향과 비전을 확인할 수 있습니다.</p>
-                        </div>
-                        <ul>
-                            <li class="gnb-lv-2">
-                            <a href="#" class="gnb-lv-2-item">
-                                <div class="tit">K-OCEAN 플랫폼 소개</div>
-                                <div class="desc">K-OCEAN 플랫폼의 목적과 유용한 활용 정보를 확인할 수 있습니다.</div>
-                                <div class="icon-arrow"></div>
-                            </a>
-                            </li>
-                            <li class="gnb-lv-2">
-                            <a href="#" class="gnb-lv-2-item">
-                                <div class="tit">K-OCEAN 로드맵</div>
-                                <div class="desc">K-OCEAN 플랫폼의 장기적인 발전방향과 비전을 확인할 수 있습니다.</div>
-                                <div class="icon-arrow"></div>
-                            </a>
-                            </li>
-                        </ul>
-                        </div>
-                    </li>
-                    <li class="gnb-lv-1">
-                        <a href="#" class="gnb-lv-1-item">서비스 활용</a>
-                        <div class="gnb-dropmenu gnb-dropmenu-3">
-                        <div class="gnb-dropmenu-info">
-                            <h3>서비스 활용</h3>
-                            <p>해양지명, 해상, 수산 정보등 다양한 데이터를 확인하고 활용할 수 있습니다.</p>
-                        </div>
-                        <ul>
-                            <li class="gnb-lv-2">
-                            <a href="#" class="gnb-lv-2-item">
-                                <div class="tit">데이터 다운로드</div>
-                                <div class="desc">해양지명, 해상, 수산 정보등 다양한 데이터를 확인하고 활용할 수 있습니다.</div>
-                                <div class="icon-arrow"></div>
-                            </a>
-                            </li>
-                            <li class="gnb-lv-2">
-                            <a href="#" class="gnb-lv-2-item">
-                                <div class="tit">Open-API</div>
-                                <div class="desc">기본 지도, 영상 지도 등 해양 데이터 기반의 지도를  활용할 수 있습니다.</div>
-                                <div class="icon-arrow"></div>
-                            </a>
-                            </li>
-                            <li class="gnb-lv-2">
-                            <a href="#" class="gnb-lv-2-item">
-                                <div class="tit">통계서비스</div>
-                                <div class="desc">사용자들이 주용 이용하는 레이어에 대한 통계 자료와 상세 정보를 제공합니다.</div>
-                                <div class="icon-arrow"></div>
-                            </a>
-                            </li>
-                            <li class="gnb-lv-2">
-                            <a href="#" class="gnb-lv-2-item">
-                                <div class="tit">Cook-Book</div>
-                                <div class="desc">K-OCEAN 플랫폼의 다양한 기능들을 소개하고, 활용할 수 있는 방안을 제시합니다.</div>
-                                <div class="icon-arrow"></div>
-                            </a>
-                            </li>
-                            <li class="gnb-lv-2">
-                            <a href="#" class="gnb-lv-2-item">
-                                <div class="tit">공간정보 법령 및 규정</div>
-                                <div class="desc">전자해도 기반의 공간정보에 대한 법령 및 규정을 확인할 수 있습니다.</div>
-                                <div class="icon-arrow"></div>
-                            </a>
-                            </li>
-                        </ul>
-                        </div>
-                    </li>
-                    <li class="gnb-lv-1">
-                        <a href="#" class="gnb-lv-1-item">커뮤니티</a>
-                        <div class="gnb-dropmenu gnb-dropmenu-4">
-                        <div class="gnb-dropmenu-info">
-                            <h3>커뮤니티</h3>
-                            <p>K-Ocena 플랫폼을 쉽고 편리하게 이용할 수 있도록 다양한 정보를 제공합니다.</p>
-                        </div>
-                        <ul>
-                            <li class="gnb-lv-2">
-                            <a href="#" class="gnb-lv-2-item">
-                                <div class="tit">공지사항</div>
-                                <div class="desc">주요행사, 업데이트 정보 등 공지사항을 확인할 수 있습니다.</div>
-                                <div class="icon-arrow"></div>
-                            </a>
-                            </li>
-                            <li class="gnb-lv-2">
-                            <a href="#" class="gnb-lv-2-item">
-                                <div class="tit">자주하는 질문</div>
-                                <div class="desc">자주 묻는 질문에 대한 질의/답변을 한곳에서 확인할 수 있습니다.</div>
-                                <div class="icon-arrow"></div>
-                            </a>
-                            </li>
-                        </ul>
-                        </div>
-                    </li>
-                    </ul>
-                </nav>
-                <button type="button" class="btn-allmenu">전체메뉴</button>
-                </div>
-            </div>
-            </header>
-            <div class="header-toggle-wrap">
-                <button class="btn-header-toggle"></button>
-            </div>
-            <nav id="mobile-nav">
-                <ul class="gnb">
-                  <li class="gnb-lv1">
-                    <a href="#">해양지도 서비스</a>
-                    <div class="gnb-submenu">
-                      <ul class="gnb-submenu-list">
-                        <li class="gnb-submenu-item"><a href="#">해양정보</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="gnb-lv1">
-                    <a href="#">플랫폼 소개</a>
-                    <div class="gnb-submenu">
-                      <ul class="gnb-submenu-list">
-                        <li class="gnb-submenu-item"><a href="#">K-OCEAN 플랫폼 소개</a></li>
-                      </ul>
-                      <ul class="gnb-submenu-list">
-                        <li class="gnb-submenu-item"><a href="#">K-OCEAN 로드맵</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="gnb-lv1">
-                    <a href="#">서비스 활용</a>
-                    <div class="gnb-submenu">
-                      <ul class="gnb-submenu-list">
-                        <li class="gnb-submenu-item"><a href="#">데이터 다운로드</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="gnb-lv1">
-                    <a href="#">커뮤니티</a>
-                    <div class="gnb-submenu">
-                      <ul class="gnb-submenu-list">
-                        <li class="gnb-submenu-item"><a href="#">공지사항</a></li>
-                      </ul>
-                      <ul class="gnb-submenu-list">
-                        <li class="gnb-submenu-item"><a href="#">자주하는 질문</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-            </nav>
-        </div>
+      {{> Map-layer-panel }}
+      <!-- // layer-panel -->
 
-        <div class="aside">
-            <h1 class="map-logo"><a href="#">K-OCEAN</a></h1>
-            <ul class="menu-list">
-                <li class="menu-item-1"><button><i></i><span>해양정보</span></button></li>
-                <li class="menu-item-2"><button><i></i><span>분석</span></button></li>
-                <li class="menu-item-3"><button><i></i><span>재난안전</span></button></li>
-            </ul>
-        </div>
+      {{> Map-detail-panel }}
+      <!-- // detail-panel -->
 
-        <div class="layer-panel">
-            <div class="layer-panel-wrapper">
-                <div class="layer-panel-vi">
-                    <button type="button" class="layer-mobile-control">
-                        <i></i>
-                    </button>
-                </div>
-                <div class="search-section">
-                    <div class="search-bar">
-                        <select class="category-select">
-                            <option>갯벌 체험</option>
-                        </select>
-                        <span class="line"></span>
-                        <input type="text" placeholder="검색어를 입력하세요" class="search-input">
-                        <button class="search-btn">
-                            <span class="visually-hidden">검색</span>
-                        </button>
-                    </div>
-                    <div class="category-tabs">
-                        <button class="tab"><i class="icon icon-all"></i>전체</button>
-                        <button class="tab "><i class="icon icon-layer-1"></i>지형/지명</button>
-                        <button class="tab"><i class="icon icon-layer-2"></i>항해지원</button>
-                        <button class="tab"><i class="icon icon-layer-3"></i>기반시설</button>
-                        <button class="tab none-tab"><i class="icon icon-layer-4"></i>항만/경계</button>
-                        <button class="tab none-tab"><i class="icon icon-layer-5"></i>안전</button>
-                        <button class="tab none-tab"><i class="icon icon-layer-6"></i>고해도</button>
-                        <button class="tab none-tab"><i class="icon icon-layer-7"></i>해양정보</button>
-                        <button class="tab none-tab"><i class="icon icon-layer-8"></i>해도구역</button>
-                        <button class="tab none-tab"><i class="icon icon-layer-9"></i>관리보호구역</button>
-                        <button class="more-btn category-tabs-toggle">
-                            <span class="visually-hidden">더보기</span>
-                        </button>
-                    </div>
-                </div>
+      {{> Map-fav-layers }}
+      <!-- // fav-layers -->
 
-                <div class="item-count">총 <b>2,918</b>건</div>
-                <div class="layer-list">
-                    <div class="layer-item-list">
-                        <div class="layer-item">
-                            <button class="layer-btn-lv1" onclick="">
-                                <span class="layer-name">지형/지명</span>
-                                <i class="icon icon-layer-1"></i>
-                            </button>
+      {{> Map-weather-card }}
+      <!-- // weather-card -->
 
-                            <div class="layer-item-tree">
-                                <div class="layer-btn-lv2">
-                                    <button class="layer-btn-lv2-more"></button>
-                                    <i class="icon icon-legend-1"></i>
-                                    <span class="layer-name">지형/지명</span>
-                                    <div class="layer-utils">
-                                        <button class="layer-utils-btn layer-utils-btn-meta"><span class="visually-hidden">메타</span></button>
-                                        <button class="layer-utils-btn layer-utils-btn-sub"><span class="visually-hidden">하위 레이어</span></button>
-                                    </div>
-                                    <span class="line"></span>
-                                    <div class="switch-btn">
-                                        <label class="switch-toggle">
-                                            <input type="checkbox">
-                                            <i></i>
-                                        </label>
-                                    </div>
-                                </div>
+      {{> Map-control-panel }}
+      <!-- // control-panel -->
 
-                            </div>
+      {{> Map-coordinate-info }}
+      <!-- // coordinate-info -->
 
-                        </div>
-                        <!-- // layer-item -->
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="map-area"><div id="map"></div></div>
+      <!-- // map-area -->
 
-        <div class="detail-panel">
-            <div class="detail-panel-wrapper">
-                <div class="detail-panel-header">
-                    <button class="detail-panel-back">
-                        <span class="visually-hidden">뒤로가기</span>
-                    </button>
-                    <div class="detail-panel-header-title">
-                        <h3 class="title">해양지명</h3>
-                        <div class="utils">
-                            <button class="util-btn util-btn-meta">메타정보 보기 <i></i></buttonㅁ>
-                            <button class="util-btn util-btn-download">메타정보 다운로드 <i></i></buttonㅁ>
-                        </div>
-                    </div>
-                    
-                    <button class="detail-panel-close">
-                        <span class="visually-hidden">닫기</span>
-                    </button>
+      {{> Map-option-panel }}
 
-                </div>
-                <div class="detail-panel-content">
-                    <div class="total-count">총 <b>2,918</b>건</div>
-                    <div class="depth-layer-list">
-                        <div class="depth-layer-item">
-                            <button type="button" class="depth-layer-btn">
-                                <span>지형/지명</span>
-                                <i class="icon-layer"></i>
-                            </button>
-                        </div>
-                        <div class="depth-layer-item">
-                            <button type="button" class="depth-layer-btn">
-                                <span>지형/지명</span>
-                                <i class="icon-layer"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="layer-info">
-                        <div class="link-info">
-                            <a href="#">
-                                <i class="icon_mark"></i>
-                                <span>갯벌활동(해루질) 안전 길라잡이</span>
-                                <i class="arrow"></i>
-                            </a>
-                        </div>
-
-                        <div class="detail-content">
-                            <section class="detail-content-section">
-                                <h4 class="detail-content-title">일반 개요</h4>
-                                <div class="detail-content-item">
-                                    <dl class="detail-content-abb">
-                                        <dt>해당자료의 자료명</dt>
-                                        <dd>간출물골</dd>
-                                    </dl>
-                                    <dl class="detail-content-abb">
-                                        <dt>요약</dt>
-                                        <dd>썰물 혹은 흐름 동안에 조간대 지역에서 물의 자연적인 배수로로, 전자해도기반 간출물골 해양객체 선형정보</dd>
-                                    </dl>
-                                </div>
-                            </section>
-                            <div class="division"></div>
-                            <section class="detail-content-section">
-                                <h4 class="detail-content-title">상세정보</h4>
-                                <div class="detail-content-item">
-                                    <ul class="detail-content-list">
-                                        <li class="list-item">
-                                            <strong class="subject">목적</strong>
-                                            <div class="desc">해양안전사고 예방에 활용</div>
-                                        </li>
-                                        <li class="list-item">
-                                            <strong class="subject">주제분류1 </strong>
-                                            <div class="desc">안전</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-
-        <div class="fav-layers">
-            <button type="button"><span>어장</span><i></i></button>
-            <button type="button"><span>양식장(점)</span><i></i></button>
-            <button type="button"><span>공동어업구역</span><i></i></button>
-            <button type="button"><span>양식장(면)</span><i></i></button>
-        </div>
-
-        <div class="weather-card">
-            <div class="weather-info">
-                <div class="weather-icon"><img src="./assets/images/map/weather_01.svg" alt=""></div>
-                <div class="temperature">31°</div>
-            </div>
-            <div class="air-quality">
-                <div class="air-quality-item green">
-                    <span class="quality-label">미세</span>
-                </div>
-                <div class="air-quality-item blue">
-                    <span class="quality-label">초미세</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="control-panel">
-            <div class="tool-buttons">
-                <a href="#" class="tool-btn language-btn" target="_blank" title="새창 열림">
-                    <span class="tool-icon"></span>
-                    <span class="tool-text">EN</span>
-                </a>
-                <div class="group-btn">
-                    <button class="tool-btn map-type-btn1">
-                        <span class="tool-icon"></span>
-                        <span class="tool-text">일반지도</span>
-                    </button>
-                    <button class="tool-btn map-type-btn2">
-                        <span class="tool-icon"></span>
-                        <span class="tool-text">영상지도</span>
-                    </button>
-                </div>
-                <button class="tool-btn layer-btn" data-option="optionLayerList">
-                    <span class="tool-icon"></span>
-                    <span class="tool-text">레이어목록</span>
+      <!-- 레이어 업로드 -->
+      <div class="option-panel" id="optionCreateLayer" style="display: block;">
+        <div class="option-panel-wrapper">
+            <div class="option-panel-header">
+                <h4 class="option-panel-title">
+                <button type="button" class="option-panel-back">
+                    <i><span class="visually-hidden">뒤로가기</span></i>
                 </button>
-                <button class="tool-btn layer-btn2">
-                    <span class="tool-icon"></span>
-                    <span class="tool-text">사용자레이어</span>
-                </button>
-                <button class="tool-btn measure-btn">
-                    <span class="tool-icon"></span>
-                    <span class="tool-text">측정</span>
-                </button>
-                <button class="tool-btn legend-btn">
-                    <span class="tool-icon"></span>
-                    <span class="tool-text">범례</span>
-                </button>
+                레이어 생성
+                </h4>
             </div>
-            <div class="zoom-control">
-                <button class="zoom-btn zoom-in" title="확대">
-                    <i class="icon"></i>
-                </button>
-                <div class="zoom-range">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="131" viewBox="0 0 16 131" fill="none">
-                    <path d="M2.5 81H13.5M2.5 41H13.5M2.5 121H13.5M2.5 11H13.5M2.5 91H13.5M2.5 51H13.5M2.5 21H13.5M2.5 101H13.5M2.5 61H13.5M2.5 31H13.5M2.5 111H13.5M2.5 71H13.5" stroke="#E4E4E4"/>
-                    <line x1="8" y1="1" x2="7.99999" y2="131" stroke="#C6C6C6"/>
-                    <line x1="0.5" y1="0.5" x2="15.5" y2="0.5" stroke="#C6C6C6"/>
-                    <line x1="0.5" y1="130.5" x2="15.5" y2="130.5" stroke="#C6C6C6"/>
-                    </svg>
+            <div class="option-panel-content">
+              <div class="flow-content">
+                <div class="flow-item">
+                  <div class="flow-item-title"><span class="number">01</span><strong>레이어 유형 선택</strong></div>
+                  <div class="mb-8">
+                    <select name="" id="" class="form-select">
+                      <option value="">점</option>
+                    </select>
+                  </div>
                 </div>
-                <button class="zoom-btn zoom-out" title="축소">
-                    <i class="icon"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="coordinate-info">
-            <div class="coordinate-item">
-                <span class="coordinate-label">위도 :</span>
-                <span class="coordinate-value">125°54`9.13"E</span>
-            </div>
-            <div class="coordinate-item">
-                <span class="coordinate-label">경도 :</span>
-                <span class="coordinate-value">125°54`9.13"E</span>
-            </div>
-        </div>
-
-        <div class="map-area">
-            <div id="map"></div>
-        </div>
-
-        <div class="option-panel" id="optionLayerList">
-            <div class="option-panel-wrapper">
-                <div class="option-panel-header">
-                    <h4 class="option-panel-title">레이어 목록</h4>
-                    <button type="button" class="option-panel-close">
-                        <i><span class="visually-hidden">닫기</span></i>
-                    </button>
+                <div class="flow-item">
+                  <div class="flow-item-title"><span class="number">02</span><strong>레이어 스타일 선택</strong></div>
                 </div>
-                <div class="option-panel-content">
-                    <div class="layer-list">
-                        <div class="layer-item">
-                            <div class="layer-btn-lv2">
-                                <i class="icon icon-legend-1"></i>
-                                <span class="layer-name">지형/지명</span>
-                                <span class="line"></span>
-                                <div class="switch-btn">
-                                    <label class="switch-toggle">
-                                        <input type="checkbox">
-                                        <i></i>
-                                    </label>
-                                </div>
-                            </div>
-                            <button class="layer-btn-del" title="삭제">
-                                <span class="visually-hidden">삭제</span>
-                            </button>
-                        </div>
-                        <div class="layer-item">
-                            <div class="layer-btn-lv2">
-                                <i class="icon icon-legend-1"></i>
-                                <span class="layer-name">지형/지명</span>
-                                <span class="line"></span>
-                                <div class="switch-btn">
-                                    <label class="switch-toggle">
-                                        <input type="checkbox">
-                                        <i></i>
-                                    </label>
-                                </div>
-                            </div>
-                            <button class="layer-btn-del" title="삭제">
-                                <span class="visually-hidden">삭제</span>
-                            </button>
-                        </div>
-                    </div>
+                <div class="flow-item">
+                  <div class="flow-item-title"><span class="number">03</span><strong>위치 선택</strong></div>
                 </div>
+                <div class="flow-item">
+                  <div class="flow-item-title"><span class="number">04</span><strong>속성정보 입력</strong></div>
+                  <div><input type="text" class="form-input" placeholder="속성정보를 입력하세요"></div>
+                </div>
+                <div class="flow-item">
+                  <div class="flow-item-title"><span class="number">05</span><strong>레이어 명칭</strong></div>
+                  <div><input type="text" class="form-input" placeholder="레이어 명칭을 입력하세요"></div>
+                </div>
+              </div>
+
+              <div class="fab-fix">
+                <button type="button" class="btn btn-outline">이전</button>
+                <button type="button" class="btn btn-primary">레이어 등록</button>
+              </div>
             </div>
         </div>
+      </div>
     </div>
-</div>
-<script>
-    const searchBtn = document.querySelector('.search-btn');
-    searchBtn.addEventListener('click', function() {
-        const main = document.querySelector('.main');
-        main.classList.add('open-depth-2');
-    });
-    
-    const detailPanelClose = document.querySelector('.detail-panel-close');
-    detailPanelClose.addEventListener('click', function() {
-        const main = document.querySelector('.main');
-        main.classList.remove('open-depth-2');
-    });
-
-</script>
-<script type="module">
+  </div>
+  <script type="module">
     import './scss/map.scss';
-    import './js/page/map.js';
-</script>
+    // 모든 기능 초기화
+    initMenuButtons();
+    initGroupButtons();
+    initFavButtons();
+    initCategoryTabsToggle();
+    initCategoryTabs();
+    initHeaderToggle();
+    initHeaderClose();
+    initToolButtons();
+    initOptionPanelClose();
+  </script>
+  
+
+  
 </body>
 </html>

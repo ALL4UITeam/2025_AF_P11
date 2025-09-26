@@ -1,0 +1,246 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+@use "../abstracts/variables" as *;
+
+// 버튼 공통 스타일을 위한 믹스인
+@mixin button-base {
+  display: inline-flex;
+  height: 40px;
+  padding: 0 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex: 1 0 0;
+  color: #03163A;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+// 버튼 상태별 스타일을 위한 믹스인
+@mixin button-states($bg-color, $text-color: #03163A) {
+  background: $bg-color;
+  color: $text-color;
+  
+  &:hover,
+  &:focus {
+    background: $bg-color;
+    opacity: 0.9;
+  }
+  
+  &:disabled {
+    background: $bg-color;
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.btn {
+  @include button-base;
+  &-outline {
+    @include button-states(#fff);
+    border: 1px solid var(--g-60, #58616a);
+    &:hover,
+    &:focus,
+    &:disabled {
+      border-color: var(--g-60, #58616a);
+    }
+  }
+  
+  &-primary {
+    @include button-states(#256ef4, #fff);
+  }
+}
+
+.form-label-group {
+  display: flex;
+}
+.form-check {
+  input {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+  label {
+    display: inline-flex;
+    vertical-align: top;
+    align-items: center;
+    gap: 0 0.6rem;
+    cursor: pointer;
+    position: relative;
+    &::before {
+      content: "";
+      display: inline-block;
+      vertical-align: top;
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 50%;
+      border-radius: var(--radius-max, 1000px);
+      border: 1px solid var(--g-60, #58616a);
+      background: #fff;
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      vertical-align: top;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background-color: #256ef4;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    &:has(input:checked) {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+  span {
+    color: var(--g90, #1e2124);
+    font-family: "Pretendard GOV";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: var(--typo-letter-spacing-0, 0);
+  }
+}
+
+// 폼 입력 요소 공통 스타일을 위한 믹스인
+@mixin form-input-base {
+  display: inline-block;
+  width: 100%;
+  color: var(--g-90, #1e2124);
+  font-size: 15px;
+  border-radius: 6px;
+  border: var(--border-width-static-regular, 1px) solid var(--g-60, #58616a);
+  background: var(--color-input-surface, #fff);
+  height: 4rem;
+  padding: 0 1.6rem;
+  transition: border-color 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--primary, #256ef4);
+  }
+}
+
+.form-input {
+  @include form-input-base;
+}
+
+.form-select {
+  @include form-input-base;
+  background: #fff url("@/assets/images/map/arrow-down.svg") no-repeat right 1rem center;
+  appearance: none;
+}
+
+.text-alert {
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  border-radius: 6px;
+  border: var(--border-width-static-regular, 1px) solid #d6e0eb;
+  background: #eef2f7;
+}
+
+.list-check {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  align-self: stretch;
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+    &::before {
+      content: "";
+      display: inline-block;
+      vertical-align: top;
+      width: 1.6rem;
+      height: 1.6rem;
+      background: url("@/assets/images/map/icon_check.svg") no-repeat center center;
+      flex-shrink: 0;
+      margin-top: .2rem;
+    }
+    .text {
+      color: var(--g-60, #58616a);
+      font-family: "Pretendard GOV";
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%; /* 19.5px */
+      letter-spacing: var(--typo-letter-spacing-0, 0);
+      flex: 1;
+    }
+  }
+}
+
+// 파일 업로드 스타일
+.file-upload {
+  display: flex;
+  padding: 16px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: 6px;
+  border: 1px dashed var(--g-20, #CDD1D5);
+  background: var(--g-05, #F4F5F6);
+  
+  .upload-text {
+    color: var(--g-60, #58616A);
+    text-align: center;
+    font-family: "Pretendard GOV";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 19.5px */
+  }
+  
+  .file-upload-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+  }
+  
+  .upload-btn {
+    display: flex;
+    height: 32px;
+    padding: 0 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    border-radius: 4px;
+    border: 1px solid var(--primary, #256EF4);
+    background: var(--p-05, #ECF2FE);
+    color: var(--p-60, var(--color-light-primary-60, #0B50D0));
+    font-family: "Pretendard GOV";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 22.5px */
+    letter-spacing: var(--typo-label-small-letter-spacing, 0);
+  }
+}

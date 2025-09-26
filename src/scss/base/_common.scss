@@ -1,0 +1,37 @@
+
+
+@use "sass:map";
+
+// 방향과 속성 정의
+$directions: (
+  't': 'top',
+  'r': 'right', 
+  'b': 'bottom',
+  'l': 'left'
+);
+
+$properties: (
+  'm': 'margin',
+  'p': 'padding'
+);
+
+// 믹스인으로 중복 제거
+@mixin generate-utilities($prop-key, $dir-key, $size) {
+  .#{$prop-key}#{$dir-key}-#{$size} {
+    #{map.get($properties, $prop-key)}-#{map.get($directions, $dir-key)}: #{$size}px;
+  }
+}
+
+@each $prop-key, $prop-value in $properties {
+  @each $dir-key, $dir-value in $directions {
+    @for $i from 1 through 50 {
+      @include generate-utilities($prop-key, $dir-key, $i);
+    }
+  }
+}
+
+.display-grid-column-3{
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}

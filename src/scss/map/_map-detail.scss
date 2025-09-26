@@ -1,0 +1,326 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+@use "../abstracts/variables" as *;
+
+
+.detail-panel {
+  display: none;
+  position: absolute;
+  z-index: $zIndex-3;
+  top: 2rem;
+  bottom: 2rem;
+  left: calc($aside-width + $layer-panel-width);
+  width: $detail-panel-width;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.16);
+  @media (max-width: 1000px) {
+    left: 0;
+    top: auto;
+    width: 100%;
+    bottom: $mobile-bottom-gap;
+    border-radius: 20px 20px 0 0;
+    height: 50vh;
+  }
+}
+
+.detail-panel-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem 0;
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
+}
+
+.detail-panel-header {
+  background: #003964;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8rem;
+  width: 100%;
+  @media (max-width: 1000px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+  .detail-panel-back {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 24px;
+    height: 24px;
+    background: url("@/assets/images/map/back.svg") no-repeat center center;
+  }
+  .detail-panel-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 24px;
+    height: 24px;
+    background: url("@/assets/images/map/close.svg") no-repeat center center;
+  }
+  .detail-panel-header-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    .title {
+      color: #fff;
+      text-align: center;
+      font-size: 21px;
+      font-weight: 700;
+    }
+    .utils {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      .util-btn {
+        display: flex;
+        color: #fff;
+        display: flex;
+        gap: 0.4rem;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 400;
+        i {
+          display: flex;
+          width: 15px;
+          height: 15px;
+          background-repeat: no-repeat;
+          background-position: center center;
+        }
+      }
+      .util-btn-meta {
+        i {
+          background-image: url("@/assets/images/map/icon_util_meta.svg");
+        }
+      }
+      .util-btn-download {
+        i {
+          background-image: url("@/assets/images/map/icon_util_download.svg");
+        }
+      }
+    }
+  }
+}
+
+.detail-panel-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.6rem;
+  padding-bottom: 0;
+  padding-top: 0;
+  @media (max-width: 1000px) {
+    padding: 1.2rem;
+  }
+  .division {
+    height: 4px;
+    border-top: 1px solid var(--g-20, #cdd1d5);
+    background: var(--g-10, #e6e8ea);
+    margin: 0 -1.6rem;
+    @media (max-width: 1000px) {
+      margin: 0 -1.2rem;
+    }
+  }
+}
+
+/* 레이어 상세 */
+.layer-info {
+  .link-info {
+    a {
+      display: flex;
+      height: 40px;
+      padding: 8px 16px 8px 8px;
+      align-items: center;
+      gap: 4px;
+      border-radius: 6px;
+      background: var(--p-10, #d8e5fd);
+      .icon_mark {
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        background-image: url("@/assets/images/map/icon_!.svg");
+      }
+      span {
+        color: var(--p-80, #052561);
+        font-size: 15px;
+        font-weight: 400;
+        flex: 1;
+        @media (max-width: 1000px) {
+          font-size: 13px;
+        }
+      }
+      .arrow {
+        display: block;
+        width: 1.6rem;
+        height: 1.6rem;
+        background-image: url("@/assets/images/map/mata_info_icon.svg");
+      }
+    }
+  }
+}
+
+.detail-content-section {
+  padding: 2rem 0;
+  @media (max-width: 1000px) {
+    padding: 1.2rem 0;
+  }
+}
+
+.detail-content-title {
+  color: var(--secondary, #003964);
+  font-family: "Pretendard GOV";
+  font-size: 17px;
+  font-weight: 700;
+  padding-bottom: 1.2rem;
+  @media (max-width: 1000px) {
+    font-size: 1.3rem;
+  }
+}
+
+.detail-content-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  @media (max-width: 1000px) {
+    gap: 0.4rem;
+  }
+}
+
+.detail-content-abb {
+  dt {
+    color: var(--g-50, #6d7882);
+    font-family: "Pretendard GOV";
+    font-size: 13px;
+    font-weight: 700;
+    background: url("@/assets/images/map/bullet.svg") no-repeat left center;
+    padding-left: 0.8rem;
+    @media (max-width: 1000px) {
+      font-size: 1.3rem;
+    }
+  }
+  dd {
+    color: var(--g-90, #1e2124);
+    font-size: 15px;
+    font-weight: 400;
+    padding-top: 0.4rem;
+    @media (max-width: 1000px) {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.detail-content-list {
+  display: flex;
+  gap: 0.4rem;  
+  flex-direction: column;
+  @media (max-width: 1000px) {
+    gap: 0.4rem;
+  }
+  .list-item {
+    display: flex;
+    gap: 0 1.3rem;
+    .subject {
+      flex-shrink: 0;
+      width: 10rem;
+      color: var(--g-50, #6d7882);
+      font-family: "Pretendard GOV";
+      font-size: 13px;
+      font-weight: 400;
+      position: relative;
+      @media (max-width: 1000px) {
+        font-size: 1.3rem;
+        width: 8rem;
+      }
+      &::after {
+        content: "";
+        display: block;
+        width: 1px;
+        position: absolute;
+        right: 0;
+        top: 0.2rem;
+        bottom: 0.2rem;
+        background-color: #cdd1d5;
+      }
+    }
+    .desc {
+      flex: 1;
+      color: var(--g-90, #1e2124);
+      font-family: "Pretendard GOV";
+      font-size: 15px;
+      font-weight: 400;
+      @media (max-width: 1000px) {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+.total-count {
+  margin-bottom: 1rem;
+  color: var(--g-90, #1e2124);
+  font-family: "Pretendard GOV";
+  font-size: 17px;
+  font-weight: 400;
+  @media (max-width: 1000px) {
+    font-size: 1.3rem;
+  }
+  b {
+    color: var(--primary, #256ef4);
+    font-family: "Pretendard GOV";
+    font-weight: 700;
+  }
+}
+
+.depth-layer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.depth-layer-item {
+}
+
+.depth-layer-btn {
+  display: flex;
+  height: 40px;
+  padding: 0 12px;
+  align-items: center;
+  gap: 8px;
+  flex: 1 0 0;
+  border-radius: 6px;
+  border: 1px solid var(--g-20, #cdd1d5);
+  background: #fff;
+  width: 100%;
+  span {
+    color: var(--g-90, #1e2124);
+    font-family: "Pretendard GOV";
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 150%; /* 22.5px */
+    flex: 1;
+    text-align: left;
+    @media (max-width: 1000px) {
+      font-size: 13px;
+    }
+  }
+  .icon-layer {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    aspect-ratio: 1/1;
+    background: url("@/assets/images/map/icon_layer.svg") no-repeat center
+      center;
+  }
+}
