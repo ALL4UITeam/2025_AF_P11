@@ -17,55 +17,55 @@
   <div class="wrap">
     <nav id="map-nav">
       <header class="map-nav-header">
-          <h1 class="map-nav-logo"><a href="#">K-OCEAN</a></h1>
-          <div class="map-nav-h-utils">
-              <a href="#" class="mobile-en">EN</a>
-              <button class="map-nav-header-btn">
-                  열림
-              </button>
-          </div>
+        <h1 class="map-nav-logo"><a href="#">K-OCEAN</a></h1>
+        <div class="map-nav-h-utils">
+          <a href="#" class="mobile-en">EN</a>
+          <button class="map-nav-header-btn">
+            열림
+          </button>
+        </div>
       </header>
       <div class="map-gnb">
-          <ul>
-              <li>
-                  <a href="#">해양지도 서비스</a>
-                  <div class="map-gnb-submenu">
-                      <ul>
-                          <li><a href="#">해양지도 서비스</a></li>
-                      </ul>
-                  </div>
-              </li>
-              <li>
-                  <a href="#">플랫폼 소개</a>
-                  <div class="map-gnb-submenu">
-                      <ul>
-                          <li><a href="#">K-OCEAN 플랫폼 소개</a></li>
-                          <li><a href="#">K-OCEAN 로드맵</a></li>
-                      </ul>
-                  </div>
-              </li>
-              <li>
-                  <a href="#">서비스활용</a>
-                  <div class="map-gnb-submenu">
-                      <ul>
-                          <li><a href="#">데이터 다운로드</a></li>
-                          <li><a href="#">Open-API</a></li>
-                          <li><a href="#">통계서비스</a></li>
-                          <li><a href="#">Cook-Book</a></li>
-                          <li><a href="#">공간정보 법령 및 규정</a></li>
-                      </ul>
-                  </div>
-              </li>
-              <li>
-                  <a href="#">커뮤니티</a>
-                  <div class="map-gnb-submenu">
-                      <ul>
-                          <li><a href="#">공지사항</a></li>
-                          <li><a href="#">자주하는 질문</a></li>
-                      </ul>
-                  </div>
-              </li>
-          </ul>
+        <ul>
+          <li>
+            <a href="#">해양지도 서비스</a>
+            <div class="map-gnb-submenu">
+              <ul>
+                <li><a href="#">해양지도 서비스</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">플랫폼 소개</a>
+            <div class="map-gnb-submenu">
+              <ul>
+                <li><a href="#">K-OCEAN 플랫폼 소개</a></li>
+                <li><a href="#">K-OCEAN 로드맵</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">서비스활용</a>
+            <div class="map-gnb-submenu">
+              <ul>
+                <li><a href="#">데이터 다운로드</a></li>
+                <li><a href="#">Open-API</a></li>
+                <li><a href="#">통계서비스</a></li>
+                <li><a href="#">Cook-Book</a></li>
+                <li><a href="#">공간정보 법령 및 규정</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">커뮤니티</a>
+            <div class="map-gnb-submenu">
+              <ul>
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">자주하는 질문</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
       </div>
     </nav>
     <div class="main">
@@ -90,53 +90,28 @@
       {{> Map-coordinate-info }}
       <!-- // coordinate-info -->
 
-      <div class="map-area"><div id="map"></div></div>
+      <div class="map-area">
+        <div id="map"></div>
+      </div>
       <!-- // map-area -->
 
       {{> Map-option-panel }}
+ 
+      <!-- 라벨 생성 툴 -->
+      <div class="label-create-element" style="left:50%;top:50%;">
+        <div>
+          <div class="label-create-pointer"></div>
+          <div class="label-create-text">라벨 생성을 원하는 위치를 선택 하세요.</div>
+        </div>
+      </div>
 
-      <!-- 레이어 업로드 -->
-      <div class="option-panel" id="optionCreateLayer" style="display: block;">
-        <div class="option-panel-wrapper">
-            <div class="option-panel-header">
-                <h4 class="option-panel-title">
-                <button type="button" class="option-panel-back">
-                    <i><span class="visually-hidden">뒤로가기</span></i>
-                </button>
-                레이어 생성
-                </h4>
-            </div>
-            <div class="option-panel-content">
-              <div class="flow-content">
-                <div class="flow-item">
-                  <div class="flow-item-title"><span class="number">01</span><strong>레이어 유형 선택</strong></div>
-                  <div class="mb-8">
-                    <select name="" id="" class="form-select">
-                      <option value="">점</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="flow-item">
-                  <div class="flow-item-title"><span class="number">02</span><strong>레이어 스타일 선택</strong></div>
-                </div>
-                <div class="flow-item">
-                  <div class="flow-item-title"><span class="number">03</span><strong>위치 선택</strong></div>
-                </div>
-                <div class="flow-item">
-                  <div class="flow-item-title"><span class="number">04</span><strong>속성정보 입력</strong></div>
-                  <div><input type="text" class="form-input" placeholder="속성정보를 입력하세요"></div>
-                </div>
-                <div class="flow-item">
-                  <div class="flow-item-title"><span class="number">05</span><strong>레이어 명칭</strong></div>
-                  <div><input type="text" class="form-input" placeholder="레이어 명칭을 입력하세요"></div>
-                </div>
-              </div>
-
-              <div class="fab-fix">
-                <button type="button" class="btn btn-outline">이전</button>
-                <button type="button" class="btn btn-primary">레이어 등록</button>
-              </div>
-            </div>
+      <!-- 거리재기 -->
+      <div class="distance-measure-element" style="left:70%;top:70%;">
+        <div>
+          <button class="distance-measure-close" title="닫힘">
+            <span class="visually-hidden">닫힘</span>
+          </button>
+          <div class="distance-measure-text"><b class="distance-measure-value">38.44</b> km</div>
         </div>
       </div>
     </div>
@@ -153,9 +128,13 @@
     initHeaderClose();
     initToolButtons();
     initOptionPanelClose();
+    initMeasureTools();
+    initLegendPanelToggle();
+    initOptionPanelZoom();
   </script>
-  
 
-  
+
+
 </body>
+
 </html>

@@ -3,14 +3,6 @@
 @use "../abstracts/variables" as *;
 
 
-.icon {
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  mask-size: contain;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .fav-layers {
   z-index: 2;
@@ -261,9 +253,83 @@
         @include icon-set("icon_layer-btn2", 2.4rem, 2.4rem, #6d7882);
       }
     }
-    .measure-btn {
-      .tool-icon {
-        @include icon-set("icon_measure", 2.4rem, 2.4rem, #6d7882);
+    .measure-btn-group {
+      position: relative;
+      display: flex;
+      border-radius: 6px;
+      background: #FFF;
+      box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.16);
+      .measure-btn {
+        .tool-icon {
+          @include icon-set("icon_measure", 2.4rem, 2.4rem, #6d7882);
+        }
+        
+        &.active {
+          background-color: #fff;
+          border-radius: 0 8px 8px 0;
+          position: relative;
+          &::before {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: -1px;
+            width: 1px;
+            height: 32px;
+            background: var(--g-20, #CDD1D5);
+            z-index: 2;
+          }
+          .tool-text {
+            color: #256EF4;
+          }
+          .tool-icon {
+            background-color: #256EF4;
+          }
+        }
+      }
+      
+      .measure-tools {
+        display: flex;
+        position: absolute;
+        transform: translateX(-100%);
+        .measure-tool-btn {
+          display: flex;
+          width: 48px;
+          height: 48px;
+          padding: 4px;
+          align-items: center;
+          gap: 2px;
+          border-radius: 0;
+          background: #fff;
+          box-shadow: none;
+          transition: all 0.2s ease;
+          &.active {
+            .tool-text {
+              color: var(--primary, #256EF4);
+            }
+            .tool-icon {
+              background-color: var(--primary, #256EF4) !important;
+            }
+          }
+          
+          &[data-tool="line"] {
+            border-radius: 8px 0 0 8px;
+            .tool-icon {
+              @include icon-set("icon_line_measure", 1.6rem, 1.6rem, #1E2124);
+            }
+          }
+          
+          &[data-tool="area"] {
+            .tool-icon {
+              @include icon-set("icon_area_measure", 1.6rem, 1.6rem, #1E2124);
+            }
+          }
+          
+          &[data-tool="reset"] {
+            .tool-icon {
+              @include icon-set("icon_reset_measure", 1.6rem, 1.6rem, #1E2124);
+            }
+          }
+        }
       }
     }
     .legend-btn {

@@ -35,3 +35,6 @@ $properties: (
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
+.p-none{
+  padding: 0 !important;
+}

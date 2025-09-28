@@ -15,18 +15,22 @@
   display: none;
   position: absolute;
   right: 6.8rem;
-  top: 29.8rem;
+  top: 12.2rem;
   width: 30rem;
+  transition: all 0.3s ease;
+  
   &.active {
     display: block;
   }
-  @media screen and (max-width: 1000px) {
-    bottom: 0;
-    top: auto !important;
-    right: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
+  
+  &.zoomed-in {
+    width: 40rem;
+    .zoomed-in-legend{
+      display: block;
+    }
+    .zoomed-out-legend{
+      display: none;
+    }
   }
 }
 
@@ -61,6 +65,49 @@
   background: url("@/assets/images/map/icon_back.svg") no-repeat 0 center;
   vertical-align: top;
 }
+
+// .option-panel-zoom {
+//   width: 24px;
+//   height: 24px;
+//   border-radius: 4px;
+//   border: 1px solid #cdd1d5;
+//   background: #fff;
+//   transition: all 0.2s ease;
+  
+//   &:hover {
+//     background: #f8f9fa;
+//   }
+  
+//   &.active {
+//     background: #256ef4;
+//     border-color: #256ef4;
+    
+//     i {
+//       background-color: #fff;
+//     }
+//   }
+  
+//   i {
+//     @extend .icon;
+//     width: 100%;
+//     height: 100%;
+//     background-color: #6d7882;
+//     opacity: 1;
+//   }
+  
+//   &.in {
+//     i {
+//       mask-image: url("@/assets/images/map/icon_zoom-in.svg");
+//     }
+//   }
+  
+//   &.out {
+//     i {
+//       mask-image: url("@/assets/images/map/icon_zoom-out.svg");
+//     }
+//   }
+// }
+
 .option-panel-close {
   display: none;
   width: 24px;
@@ -289,12 +336,21 @@
   flex-direction: column;
   gap: 1.6rem;
 }
-
+.flow-item-utils{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 .flow-item-title{
   display: flex;
 padding-bottom: 8px;
 align-items: center;
 gap: 4px;
+position: relative;
   .number{
     color: var(--primary, #256EF4);
 font-family: "Pretendard GOV";
@@ -323,4 +379,222 @@ letter-spacing: var(--typo-letter-spacing-0, 0);
   padding: 1.6rem 1.6rem 0;
   margin: 1.6rem -1.6rem 0;
   border-top: 1px solid #CDD1D5;
+}
+
+.input-column{
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+// 범례 그라데이션 바
+.legend-gradient-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1.6rem;
+}
+
+.gradient-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  
+  .gradient-label {
+    color: #1e2124;
+    font-family: "Pretendard GOV";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 150%;
+    min-width: 60px;
+  }
+  
+  .gradient-bar {
+    flex: 1;
+    height: 20px;
+    border-radius: 4px;
+    position: relative;
+    
+    &.danger-gradient {
+      background: linear-gradient(to right, 
+        #fff5f5 0%, 
+        #fed7d7 20%, 
+        #feb2b2 40%, 
+        #fc8181 60%, 
+        #f56565 80%, 
+        #e53e3e 100%);
+    }
+    
+    &.safety-gradient {
+      background: linear-gradient(to right, 
+        #fffbf0 0%, 
+        #fef5e7 20%, 
+        #f6e05e 40%, 
+        #d69e2e 60%, 
+        #b7791f 80%, 
+        #975a16 100%);
+    }
+  }
+  
+  .gradient-max {
+    color: #1e2124;
+    font-family: "Pretendard GOV";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 150%;
+    min-width: 60px;
+    text-align: right;
+  }
+}
+
+// 영역 직접 선택하기 카드
+.area-select-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1.6rem;
+  border-radius: 6px;
+  background: var(--g-05, #F4F5F6);
+  align-items: center;
+  justify-content: center;
+}
+
+.area-select-info {
+  display: flex;
+  align-items: center;
+  .info-icon {
+    width: 2rem;
+    height: 2rem;
+    background:url("@/assets/images/map/icon_info.svg") no-repeat center center;
+  }
+  
+  .info-text {
+    color: var(--g-90, #1E2124);
+    text-align: center;
+    font-family: "Pretendard GOV";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 22.5px */
+  }
+}
+
+.area-select-btn {
+  display: flex;
+  height: 32px;
+  padding: 0 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  color: var(--p-60, var(--color-light-primary-60, #0B50D0));
+  font-family: "Pretendard GOV";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 22.5px */
+  letter-spacing: var(--typo-label-small-letter-spacing, 0);
+  border-radius: 4px;
+  border: 1px solid var(--primary, #256EF4);
+  background: var(--p-05, #ECF2FE);
+}
+
+.label-create-element{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: -8px;
+}
+.label-create-pointer{
+  width: 2rem;
+  height: 2rem;
+  background:url("@/assets/images/map/label-pointer.svg") no-repeat center center;
+  transform: translate(-80%, 5px);
+}
+.label-create-text{
+  display: flex;
+padding: 4px 8px;
+align-items: center;
+gap: 17px;
+  border-radius: 4px;
+background: #FFF;
+box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  color: var(--p-60, var(--color-light-primary-60, #0B50D0));
+  font-family: "Pretendard GOV";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 22.5px */
+}
+
+.distance-measure-element{
+  position: absolute;
+  > div{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+}
+.distance-measure-close{
+  width: 1.6rem;
+  height: 1.6rem;
+  background:url("@/assets/images/map/icon_blue_close.svg") no-repeat center center;
+  border-radius: 50%;
+  background-color: var(--primary, #1764DC);
+
+}
+.distance-measure-text{
+  display: flex;
+  padding: 4px 8px;
+  align-items: center;
+  gap: 0 .2rem;
+  border-radius: 4px;
+  background: #FFF;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  color: var(--g-60, #58616A);
+  font-family: "Pretendard GOV";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.distance-measure-value{
+  color: var(--primary, #1764DC);
+  font-family: "Pretendard GOV";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 150%; /* 22.5px */
+}
+
+.option-panel-zoom{
+  display: flex;
+  width: 32px;
+  height: 32px;
+  padding: 11px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+  border-radius: 4px;
+  background: var(--p-10, #D8E5FD);
+  border: 0;
+  &.in{
+    i{
+      @include icon-set("zoomin", 19px, 15px, #58616A);
+    }
+  }
+  &.out{
+    background: var(--p-10, #D8E5FD) !important;
+    i{
+      @include icon-set("zoomout", 19px, 15px, #58616A);
+    }
+  }
+}
+.zoomed-in-legend{
+  display: none;
+}
+.zoomed-out-legend{
+  display: block;
 }

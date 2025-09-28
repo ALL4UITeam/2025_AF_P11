@@ -90,60 +90,110 @@ function initToolButtons(selector = '[data-option]', callback) {
   toolButtons.forEach(button => {
     button.addEventListener('click', function() {
       const option = this.dataset.option;
-      const optionPanel = document.querySelector(`#${option}`);
-      const isActive = optionPanel.classList.contains('active');
-      optionPanel.classList.toggle('active');
-      button.classList.toggle('active');
+      const isActive = document.querySelector(`#${option}`).classList.contains('active');
+      
+      if (isActive) {
+        closeOptionPanel(option);
+      } else {
+        openOptionPanel(option);
+      }
+      
       if (callback) callback(this, option, isActive);
     });
   });
 }
 
+// @@ 옵션 패널 닫기 (외부 호출용)
+function closeOptionPanel(panelId) {
+  const panel = document.querySelector(`#${panelId}`);
+  const button = document.querySelector(`[data-option="${panelId}"]`);
+  
+  if (panel) {
+    panel.classList.remove('active');
+  }
+  if (button) {
+    button.classList.remove('active');
+  }
+}
+
+// @@ 옵션 패널 열기 (외부 호출용)
+function openOptionPanel(panelId) {
+  const panel = document.querySelector(`#${panelId}`);
+  const button = document.querySelector(`[data-option="${panelId}"]`);
+  
+  if (panel) {
+    panel.classList.add('active');
+  }
+  if (button) {
+    button.classList.add('active');
+  }
+}
+
 // @@ 옵션 패널 닫기 기능
 function initOptionPanelClose(selector = '.option-panel-close', callback) {
-  const optionPanelClose = document.querySelector(selector);
-  if (optionPanelClose) {
-    optionPanelClose.addEventListener('click', function() {
+  const optionPanelClose = document.querySelectorAll(selector);
+  optionPanelClose.forEach(closeBtn => {
+    closeBtn.addEventListener('click', function() {
       const optionPanel = this.closest('.option-panel');
-      const button = optionPanel.querySelector('[data-option]');
-      optionPanel.classList.remove('active');
-      button.classList.remove('active');
+      const panelId = optionPanel.id;
+      closeOptionPanel(panelId);
       if (callback) callback(this, optionPanel);
     });
-  }
+  });
 }
 
 // @@ 헤더 토글 기능
 function initHeaderToggle(toggleSelector = '#btnMenuOpen', headerSelector = '#map-nav', callback) {
   const headerToggle = document.querySelector(toggleSelector);
-  const mapHeader = document.querySelector(headerSelector);
   
-  if (headerToggle && mapHeader) {
+  if (headerToggle) {
     headerToggle.addEventListener('click', function() {
-      const isActive = mapHeader.classList.contains('active');
-      mapHeader.classList.toggle('active');
+      const isActive = document.querySelector(headerSelector).classList.contains('active');
+      
+      if (isActive) {
+        closeHeader();
+      } else {
+        openHeader();
+      }
+      
       if (callback) callback(this, isActive);
     });
+  }
+}
+
+// @@ 헤더 닫기 (외부 호출용)
+function closeHeader() {
+  const mapHeader = document.querySelector('#map-nav');
+  if (mapHeader) {
+    mapHeader.classList.remove('active');
+  }
+}
+
+// @@ 헤더 열기 (외부 호출용)
+function openHeader() {
+  const mapHeader = document.querySelector('#map-nav');
+  if (mapHeader) {
+    mapHeader.classList.add('active');
   }
 }
 
 // @@ 헤더 닫기 기능
 function initHeaderClose(selector = '.map-nav-header-btn', headerSelector = '#map-nav', callback) {
   const headerClose = document.querySelector(selector);
-  const mapHeader = document.querySelector(headerSelector);
   
-  if (headerClose && mapHeader) {
+  if (headerClose) {
     headerClose.addEventListener('click', function() {
       if(window.innerWidth < 1000){
-        if(mapHeader.classList.contains('active')){
-          mapHeader.classList.remove('active');
+        const isActive = document.querySelector(headerSelector).classList.contains('active');
+        if(isActive){
+          closeHeader();
         } else {
-          mapHeader.classList.add('active');
+          openHeader();
         }
       } else {
-        mapHeader.classList.remove('active');
+        closeHeader();
       }
-      if (callback) callback(this, mapHeader.classList.contains('active'));
+      if (callback) callback(this, document.querySelector(headerSelector).classList.contains('active'));
     });
   }
 }
@@ -168,6 +218,137 @@ function initMap() {
   return mapInstance;
 }
 
+// @@ 측정 도구 토글 기능
+function initMeasureTools(toggleSelector = '#measureToggleBtn', toolsSelector = '#measureTools', callback) {
+  const measureToggleBtn = document.querySelector(toggleSelector);
+  const measureTools = document.querySelector(toolsSelector);
+  
+  if (measureToggleBtn && measureTools) {
+    // 초기 상태 설정 (숨김)
+    measureTools.style.display = 'none';
+    measureToggleBtn.classList.remove('active');
+    
+    measureToggleBtn.addEventListener('click', function() {
+      const isCurrentlyVisible = measureTools.style.display !== 'none';
+      
+      if (isCurrentlyVisible) {
+        // 현재 보이는 상태라면 숨기기
+        measureTools.style.display = 'none';
+        this.classList.remove('active');
+      } else {
+        // 현재 숨겨진 상태라면 보이기
+        measureTools.style.display = 'flex';
+        this.classList.add('active');
+      }
+      
+      if (callback) callback(this, isCurrentlyVisible);
+    });
+    
+    // 측정 도구 버튼들에 이벤트 리스너 추가
+    const measureToolBtns = measureTools.querySelectorAll('.measure-tool-btn');
+    measureToolBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const tool = this.dataset.tool;
+        
+        // 모든 측정 도구 버튼에서 active 클래스 제거
+        measureToolBtns.forEach(b => b.classList.remove('active'));
+        
+        // 클릭한 버튼에 active 클래스 추가
+        this.classList.add('active');
+        
+        if (callback) callback(this, tool);
+      });
+    });
+  }
+}
+
+// @@ 옵션 패널 확대/축소 토글 기능
+function initOptionPanelZoom(zoomSelector = '.option-panel-zoom', callback) {
+  const zoomBtn = document.querySelector(zoomSelector);
+  if (zoomBtn) {
+    zoomBtn.addEventListener('click', function() {
+      const isZoomedIn = this.classList.contains('in');
+      if (isZoomedIn) {
+        zoomOutOptionPanel(zoomSelector);
+      } else {
+        zoomInOptionPanel(zoomSelector);
+      }
+    });
+  }
+}
+
+// @@ 옵션 패널 확대 (외부 호출용)
+function zoomInOptionPanel(selector = '.option-panel-zoom') {
+  const zoomBtn = document.querySelector(selector);
+  const panel = zoomBtn ? zoomBtn.closest('.option-panel') : null;
+  
+  if (zoomBtn) {
+    zoomBtn.classList.add('in');
+    zoomBtn.classList.remove('out');
+  }
+  if (panel) {
+    panel.classList.remove('zoomed-in');
+  }
+}
+
+// @@ 옵션 패널 축소 (외부 호출용)
+function zoomOutOptionPanel(selector = '.option-panel-zoom') {
+  const zoomBtn = document.querySelector(selector);
+  const panel = zoomBtn ? zoomBtn.closest('.option-panel') : null;
+  
+  if (zoomBtn) {
+    zoomBtn.classList.add('out');
+    zoomBtn.classList.remove('in');
+  }
+  if (panel) {
+    panel.classList.add('zoomed-in');
+  }
+}
+
+
+// @@ 지도 범례 토글 기능
+function initLegendPanelToggle(buttonSelector = '.legend-btn', panelSelector = '#legendPanel', callback) {
+  const legendBtn = document.querySelector(buttonSelector);
+  if (legendBtn) {
+    legendBtn.addEventListener('click', function() {
+      const isActive = document.querySelector(panelSelector).classList.contains('active');
+      if (isActive) {
+        closeLegendPanel();
+      } else {
+        openLegendPanel();
+      }
+      
+      if (callback) callback(this, isActive);
+    });
+  }
+}
+
+// @@ 지도 범례 패널 닫기 (외부 호출용)
+function closeLegendPanel() {
+  const legendPanel = document.querySelector('#legendPanel');
+  const legendBtn = document.querySelector('.legend-btn');
+  
+  if (legendPanel) {
+    legendPanel.classList.remove('active');
+  }
+  if (legendBtn) {
+    legendBtn.classList.remove('active');
+  }
+}
+
+// @@ 지도 범례 패널 열기 (외부 호출용)
+function openLegendPanel() {
+  const legendPanel = document.querySelector('#legendPanel');
+  const legendBtn = document.querySelector('.legend-btn');
+  
+  if (legendPanel) {
+    legendPanel.classList.add('active');
+  }
+  if (legendBtn) {
+    legendBtn.classList.add('active');
+  }
+}
+  
 // @@ 지도 인스턴스 가져오기
 function getMapInstance() {
   return mapInstance;

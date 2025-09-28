@@ -10,3 +10,12 @@
   mask-image: url('@/assets/images/map/#{$name}.svg');
   background-color: $color;
 }
+
+.icon {
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -19,10 +19,26 @@
         <span class="tool-icon"></span>
         <span class="tool-text">사용자레이어</span>
       </button>
-      <button class="tool-btn measure-btn">
-        <span class="tool-icon"></span>
-        <span class="tool-text">측정</span>
-      </button>
+      <div class="measure-btn-group">
+        <button class="tool-btn measure-btn" id="measureToggleBtn">
+          <span class="tool-icon"></span>
+          <span class="tool-text">측정</span>
+        </button>
+        <div class="measure-tools" id="measureTools" style="display: none;">
+          <button class="tool-btn measure-tool-btn" data-tool="line">
+            <span class="tool-icon"></span>
+            <span class="tool-text">선측정</span>
+          </button>
+          <button class="tool-btn measure-tool-btn" data-tool="area">
+            <span class="tool-icon"></span>
+            <span class="tool-text">면측정</span>
+          </button>
+          <button class="tool-btn measure-tool-btn" data-tool="reset">
+            <span class="tool-icon"></span>
+            <span class="tool-text">초기화</span>
+          </button>
+        </div>
+      </div>
       <button class="tool-btn legend-btn">
         <span class="tool-icon"></span>
         <span class="tool-text">범례</span>

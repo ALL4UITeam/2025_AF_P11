@@ -53,6 +53,15 @@
   }
 }
 
+.input-group{
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  button{
+    flex-shrink: 0;
+  }
+}
+
 .form-label-group {
   display: flex;
 }
@@ -242,5 +251,109 @@
     font-weight: 400;
     line-height: 150%; /* 22.5px */
     letter-spacing: var(--typo-label-small-letter-spacing, 0);
+  }
+}
+
+/* 지도 버튼 모음 */
+.btn-utility{
+  display: inline-flex;
+  vertical-align: top;
+  align-items: center;
+  justify-content: center;
+  color: var(--g-60, #58616A);
+  font-family: "Pretendard GOV";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 19.5px */
+  height: 2rem;
+  i{
+    @extend .icon;
+  }
+  .icon-add{
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--g-60, #58616a);
+  }
+  .icon-minus{
+    width: 2rem;
+    height: 2rem;
+  }
+}
+.icon-random{
+  mask-image: url("@/assets/images/map/icon_random.svg");
+  width: 16px;
+  height: 16px;
+  background-color: var(--g-60, #58616a);
+}
+
+.icon-transform{
+  mask-image: url("@/assets/images/map/icon_transform.svg");
+  width: 16px;
+  height: 16px;
+  background-color: var(--g-60, #58616a);
+}
+
+.icon-add{
+  mask-image: url("@/assets/images/map/icon_add.svg");
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--g-60, #58616a);
+}
+
+.icon-minus{
+  mask-image: url("@/assets/images/map/icon_minus.svg");
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--g-60, #58616a);
+}
+
+.wd-modal{
+  z-index: $z-index-modal;
+  position: absolute;
+  right: 1.2rem;
+  bottom: 5.6rem;
+  border-radius: 20px;
+  border: 1px solid var(--g-20, #CDD1D5);
+  background: #FFF;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  .wd-modal-header{
+    display: flex;
+    width: 300px;
+    padding: 8px 16px 0 16px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    border-radius: 6px 6px 0 0;
+    border-bottom: 1px solid #CDD1D5;
+  }
+  .wd-modal-title{
+    color: var(--g-90, #1E2124);
+font-family: "Pretendard GOV";
+font-size: 17px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 25.5px */
+letter-spacing: var(--typo-letter-spacing-0, 0);
+  }
+  .wd-modal-content{
+    padding: 1.6rem;
+  }
+  .wd-modal-close{
+    display: flex;
+    width: 32px;
+    height: 32px;
+    padding: 11px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+    i{
+      @extend .icon;
+      @include icon-set("close-black", 1rem, 1rem, #1E2124);
+    }
   }
 }
