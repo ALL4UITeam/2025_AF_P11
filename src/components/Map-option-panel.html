@@ -10,7 +10,7 @@
     <div class="option-panel-content">
       <div class="layer-list">
         <div class="layer-item">
-          <div class="layer-btn-lv2">
+          <div class="layer-btn-ui">
             <i class="icon icon-legend-1"></i>
             <span class="layer-name">지형/지명</span>
             <span class="line"></span>
@@ -26,7 +26,7 @@
           </button>
         </div>
         <div class="layer-item">
-          <div class="layer-btn-lv2">
+          <div class="layer-btn-ui">
             <i class="icon icon-legend-1"></i>
             <span class="layer-name">지형/지명</span>
             <span class="line"></span>
@@ -45,7 +45,7 @@
     </div>
   </div>
 </div>
-<!-- // optionLayerList -->
+<!-- // optionLayerList -->`
 
 <!-- 사용자 레이어 -->
 <div class="option-panel" id="optionUserLayer">
@@ -295,6 +295,9 @@
 </div>
 <!-- // optionCreateLayer -->
 
+
+
+<!-- 지도 범례 -->
 <div class="option-panel" id="legendPanel">
   <div class="option-panel-wrapper">
     <div class="option-panel-header">
@@ -313,7 +316,9 @@
     </div>
   </div>
 </div>
+<!-- // legendPanel -->
 
+<!-- 지도 범례 -->
 <div class="wd-modal legend-extend">
   <div class="wd-modal-wrapper">
     <div class="wd-modal-header">
@@ -326,15 +331,20 @@
       <div class="legend-gradient-bars">
         <div class="gradient-item">
           <div class="gradient-label">사고/위험</div>
-          <div class="gradient-bar danger-gradient"></div>
+          <div class="gradient-bar danger-gradient">
+            <span></span><span></span><span></span><span></span>
+          </div>
           <div class="gradient-max">MAX:244</div>
         </div>
         <div class="gradient-item">
           <div class="gradient-label">예방시설</div>
-          <div class="gradient-bar safety-gradient"></div>
+          <div class="gradient-bar safety-gradient">
+            <span></span><span></span><span></span><span></span>
+          </div>
           <div class="gradient-max">MAX:3</div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<!-- // legend-extend -->

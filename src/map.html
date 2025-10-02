@@ -9,10 +9,9 @@
   <link rel="stylesheet" href="./lib/swiper/swiper-bundle.min.css">
   <script src="./lib/ol/ol.js"></script>
   <script src="./lib/swiper/swiper-bundle.min.js"></script>
-  <script src="./js/page/map.js"></script>
 </head>
 
-<body>
+<body class="open-depth-1">
 
   <div class="wrap">
     <nav id="map-nav">
@@ -98,7 +97,7 @@
       {{> Map-option-panel }}
  
       <!-- 라벨 생성 툴 -->
-      <div class="label-create-element" style="left:50%;top:50%;">
+      <div class="label-create-element" style="left:30%;top:20%;">
         <div>
           <div class="label-create-pointer"></div>
           <div class="label-create-text">라벨 생성을 원하는 위치를 선택 하세요.</div>
@@ -106,7 +105,7 @@
       </div>
 
       <!-- 거리재기 -->
-      <div class="distance-measure-element" style="left:70%;top:70%;">
+      <div class="distance-measure-element" style="left:40%;top:20%;">
         <div>
           <button class="distance-measure-close" title="닫힘">
             <span class="visually-hidden">닫힘</span>
@@ -114,27 +113,65 @@
           <div class="distance-measure-text"><b class="distance-measure-value">38.44</b> km</div>
         </div>
       </div>
+
+      <!-- 지도 클릭 정보 팝업 -->
+      <div class="map-info-popup" style="left:40%;top:30%;display: block">
+        <div>
+          <div class="map-info-pointer"></div>
+          <div class="map-info-content">
+            <div class="map-info-item">
+              <span class="map-info-label">해양지명</span>
+              <span class="map-info-line"></span>
+              <span class="map-info-value">217</span>
+            </div>
+            <div class="map-info-item">
+              <span class="map-info-label">도서지명</span>
+              <span class="map-info-line"></span>
+              <span class="map-info-value">120</span>
+            </div>
+            <div class="map-info-item">
+              <span class="map-info-label">어장</span>
+              <span class="map-info-line"></span>
+              <span class="map-info-value">60</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- // map-info-popup -->
+
+      <!-- 테스트용 모달 버튼 -->
+      <!-- <button class="test-modal-btn" data-modal="example-modal">
+        모달 테스트
+      </button> -->
+
+      <div class="map-modal" id="example-modal">
+        <div class="modal-container">
+          <header class="modal-header">
+            <h2 class="modal-title">해수욕장 안전지수</h2>
+            <button class="modal-close">
+              <span class="visually-hidden">닫기</span>
+            </button>
+          </header>
+          <div class="map-modal-content">
+            <p>해수욕장 이용객의 안전도를
+              지수로 표현한 것입니다.
+              지형적 위험성과 사고 발생 요인을 반영하여 산출된 값이며, 0~99점 사이에서 숫자가 클수록 위험함을 나타냅니다.</p>
+          </div>
+          <div class="map-modal-footer">
+            <div>
+              <button>이전</button>
+            </div>
+            <div>
+              <button>수정</button>
+              <button>등록</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-  <script type="module">
-    import './scss/map.scss';
-    // 모든 기능 초기화
-    initMenuButtons();
-    initGroupButtons();
-    initFavButtons();
-    initCategoryTabsToggle();
-    initCategoryTabs();
-    initHeaderToggle();
-    initHeaderClose();
-    initToolButtons();
-    initOptionPanelClose();
-    initMeasureTools();
-    initLegendPanelToggle();
-    initOptionPanelZoom();
-  </script>
-
-
-
+  <script type="module" src="./js/page/map.js"></script>
+  
 </body>
-
 </html>
